@@ -1,0 +1,1587 @@
+<!-- Ride sheet. -->
+<title>Ride sheet — COLD RIDE — Z-414</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{
+  --ink:#181825; --sun:#FF8000; --hot:#FF4D00; --muted:#9C9CA4;
+  --bg:#fbfaf7; --card:#ffffff; --line:#ece8e1; --fg:#20202b; --soft:#5b6573;
+  --quote:#f4f1ea; --optbg:#fbf8f2;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#14141b; --card:#1d1d27; --line:#2d2d3a; --fg:#e9e8ef; --soft:#a6a6b4; --quote:#232330; --optbg:#232330; }
+}
+:root[data-theme="dark"]{ --bg:#14141b; --card:#1d1d27; --line:#2d2d3a; --fg:#e9e8ef; --soft:#a6a6b4; --quote:#232330; --optbg:#232330; }
+:root[data-theme="light"]{ --bg:#fbfaf7; --card:#ffffff; --line:#ece8e1; --fg:#20202b; --soft:#5b6573; --quote:#f4f1ea; --optbg:#fbf8f2; }
+
+*{ box-sizing:border-box; }
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:17px; line-height:1.62; -webkit-font-smoothing:antialiased;
+}
+.wrap{ max-width:720px; margin:0 auto; padding:32px 20px 96px; }
+header.top{ border-bottom:3px solid var(--sun); padding-bottom:20px; margin-bottom:8px; }
+header.top .kilo{ font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--sun); font-weight:700; }
+header.top h1{ font-size:26px; line-height:1.2; margin:.35em 0 .3em; letter-spacing:-.01em; }
+header.top p{ color:var(--soft); font-size:15px; margin:.4em 0 0; }
+.howto{ background:var(--quote); border:1px solid var(--line); border-radius:12px; padding:14px 18px; margin:22px 0 0; font-size:14.5px; color:var(--soft); }
+.howto b{ color:var(--fg); }
+
+.lesson{ background:var(--card); border:1px solid var(--line); border-radius:16px; padding:28px 30px; margin:30px 0; box-shadow:0 1px 2px rgba(0,0,0,.03); }
+.lesson > .idx{ font-size:12.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); font-weight:700; }
+.lesson > h2{ font-size:22px; line-height:1.22; margin:.2em 0 .8em; letter-spacing:-.01em; }
+.core p{ margin:.85em 0; }
+.core p.arrow{ position:relative; padding-left:1.4em; margin:.55em 0; }
+.core p.arrow::before{ content:"→"; position:absolute; left:0; color:var(--sun); font-weight:700; }
+.core h4{ font-size:14px; letter-spacing:.06em; text-transform:uppercase; color:var(--soft); margin:1.6em 0 .5em; }
+.core blockquote{ margin:1.1em 0; padding:12px 18px; background:var(--quote); border-left:3px solid var(--muted); border-radius:0 8px 8px 0; font-size:15.5px; color:var(--soft); }
+.core code{ font-family:ui-monospace,Menlo,Consolas,monospace; font-size:.9em; background:var(--quote); padding:.08em .35em; border-radius:5px; }
+.core .term{ font-weight:600; color:var(--fg); }
+.core strong{ color:var(--fg); }
+.core table{ width:100%; border-collapse:collapse; margin:1.1em 0; font-size:15px; }
+.core th,.core td{ text-align:left; padding:7px 12px; border-bottom:1px solid var(--line); }
+.core th{ color:var(--soft); font-size:12.5px; text-transform:uppercase; letter-spacing:.05em; }
+.core details{ margin:1em 0; background:var(--quote); border:1px solid var(--line); border-radius:10px; padding:2px 16px; }
+.core details summary{ cursor:pointer; font-weight:600; padding:10px 0; color:var(--fg); }
+.core details[open] summary{ border-bottom:1px solid var(--line); margin-bottom:8px; }
+figure.diagram{ margin:1.4em 0; background:#ffffff; border:1px solid var(--line); border-radius:12px; padding:16px; text-align:center; overflow-x:auto; }
+figure.diagram svg{ max-width:100%; height:auto; }
+
+.check{ margin-top:26px; border-top:1px dashed var(--line); padding-top:22px; }
+.check .clabel{ font-size:12.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--sun); font-weight:700; margin-bottom:10px; }
+.scenario{ background:var(--optbg); border:1px solid var(--line); border-left:3px solid var(--sun); border-radius:0 10px 10px 0; padding:14px 18px; font-size:16px; margin:0 0 18px; }
+.scenario code{ font-family:ui-monospace,Menlo,Consolas,monospace; font-size:.9em; }
+.opt{ border:1px solid var(--line); border-radius:12px; margin:12px 0; overflow:hidden; }
+.opt .otext{ padding:14px 16px; display:flex; gap:12px; align-items:flex-start; }
+.opt .oL{ flex:0 0 auto; width:26px; height:26px; border-radius:7px; background:var(--sun); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center; margin-top:1px; }
+.opt .otext code{ font-family:ui-monospace,Menlo,Consolas,monospace; font-size:.88em; }
+.opt details{ border-top:1px solid var(--line); background:var(--quote); }
+.opt details summary{ cursor:pointer; list-style:none; padding:10px 16px 10px 54px; font-size:14px; color:var(--soft); font-weight:600; }
+.opt details summary::-webkit-details-marker{ display:none; }
+.opt details summary::before{ content:"▸ read the reasoning"; }
+.opt details[open] summary::before{ content:"▾ reasoning"; }
+.opt details .scaf{ padding:2px 16px 16px 54px; font-size:15.5px; color:var(--fg); }
+.opt details .scaf code{ font-family:ui-monospace,Menlo,Consolas,monospace; font-size:.88em; }
+footer.foot{ color:var(--muted); font-size:13px; text-align:center; margin-top:40px; }
+.idx .asis{ margin-left:8px; color:var(--muted); font-weight:600; text-transform:none; letter-spacing:0; font-size:11px; background:var(--quote); border:1px solid var(--line); padding:2px 7px; border-radius:5px; }
+
+.cbox{ margin:14px 0; }
+.cbox > label{ display:block; font-size:11.5px; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); font-weight:700; margin-bottom:5px; }
+.cbox textarea{ display:block; width:100%; min-height:46px; resize:vertical; font:inherit; font-size:15px; line-height:1.5; color:var(--fg); background:var(--optbg); border:1px solid var(--line); border-radius:9px; padding:9px 12px; }
+.cbox textarea::placeholder{ color:var(--muted); }
+.cbox textarea:focus{ outline:2px solid var(--sun); outline-offset:1px; border-color:var(--sun); }
+.cbox textarea.has{ border-left:3px solid var(--sun); background:var(--card); }
+
+.check .opts-list{ display:flex; flex-direction:column; gap:9px; margin:0 0 4px; }
+.opt-line{ display:flex; gap:12px; align-items:flex-start; padding:12px 15px; border:1px solid var(--line); border-radius:11px; background:var(--card); }
+.opt-line .oL{ flex:0 0 auto; width:26px; height:26px; border-radius:7px; background:var(--sun); color:#fff; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center; margin-top:1px; }
+.opt-line code{ font-family:ui-monospace,Menlo,Consolas,monospace; font-size:.88em; }
+.reveals h4{ font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--soft); margin:16px 0 8px; }
+.reveals details{ border:1px solid var(--line); border-radius:11px; background:var(--quote); margin:0; }
+.reveals details summary{ cursor:pointer; padding:11px 15px; font-weight:600; font-size:15px; color:var(--fg); list-style:none; }
+.reveals details summary::-webkit-details-marker{ display:none; }
+.reveals details summary::before{ content:"\25B8  "; color:var(--sun); font-weight:700; }
+.reveals details[open] summary::before{ content:"\25BE  "; }
+.reveals details .scaf{ padding:2px 15px 15px; font-size:15.5px; color:var(--fg); }
+.reveals details .scaf code{ font-family:ui-monospace,Menlo,Consolas,monospace; font-size:.88em; }
+
+#collectBar{ position:fixed; right:16px; bottom:16px; z-index:50; }
+#collectBar{ display:flex; flex-direction:column; align-items:flex-end; gap:8px; }
+#waBtn{ background:#1f8f4e; color:#fff; border:none; border-radius:999px; padding:11px 18px; font:inherit; font-weight:700; font-size:14px; box-shadow:0 5px 18px rgba(0,0,0,.22); cursor:pointer; }
+#waBtn:focus-visible{ outline:2px solid var(--fg); outline-offset:3px; }
+#collectBtn{ background:var(--sun); color:#fff; border:none; border-radius:999px; padding:13px 20px; font:inherit; font-weight:700; font-size:14.5px; box-shadow:0 5px 18px rgba(0,0,0,.22); cursor:pointer; }
+#collectBtn:focus-visible{ outline:2px solid var(--fg); outline-offset:3px; }
+#collectBtn .n{ opacity:.85; font-variant-numeric:tabular-nums; }
+.modal{ position:fixed; inset:0; background:rgba(12,12,18,.6); display:none; align-items:center; justify-content:center; z-index:60; padding:18px; }
+.modal.open{ display:flex; }
+.modal .panel{ background:var(--card); border:1px solid var(--line); border-radius:14px; max-width:760px; width:100%; max-height:88vh; display:flex; flex-direction:column; padding:20px; }
+.modal .phead{ display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:6px; }
+.modal .phead strong{ font-size:16px; }
+.modal .pnote{ color:var(--soft); font-size:13.5px; margin:0 0 12px; }
+.modal .pnote code{ font-family:ui-monospace,Menlo,Consolas,monospace; font-size:.9em; background:var(--quote); padding:.05em .3em; border-radius:4px; }
+.modal #outTa{ width:100%; flex:1 1 auto; min-height:46vh; resize:vertical; font-family:ui-monospace,Menlo,Consolas,monospace; font-size:12.5px; line-height:1.55; color:var(--fg); background:var(--optbg); border:1px solid var(--line); border-radius:10px; padding:12px; white-space:pre-wrap; overflow:auto; }
+.modal .pfoot{ display:flex; align-items:center; gap:14px; margin-top:12px; }
+.modal button.primary{ background:var(--sun); color:#fff; border:none; border-radius:9px; padding:11px 18px; font:inherit; font-weight:700; font-size:14.5px; cursor:pointer; }
+.modal button.x{ background:transparent; color:var(--soft); border:1px solid var(--line); border-radius:8px; padding:7px 13px; font:inherit; font-size:13.5px; cursor:pointer; }
+.modal .msg{ color:var(--sun); font-size:13.5px; font-weight:600; }
+@media (max-width:520px){ #collectBtn{ padding:11px 16px; font-size:14px; } }
+
+.cbox input{ display:block; width:100%; font:inherit; font-size:15px; color:var(--fg); background:var(--optbg); border:1px solid var(--line); border-radius:9px; padding:8px 12px; }
+.cbox input:focus{ outline:2px solid var(--sun); outline-offset:1px; border-color:var(--sun); }
+.cbox input.has{ border-left:3px solid var(--sun); background:var(--card); }
+.rgrid{ display:grid; grid-template-columns:1fr 1fr; gap:0 14px; }
+@media (max-width:520px){ .rgrid{ grid-template-columns:1fr; } }
+@media (max-width:520px){ .lesson figure.diagram{ margin-left:-31px; margin-right:-31px; } }
+.next li{ margin:.35em 0; }
+
+figure.diagram .fig-wide{ display:none; }
+@media (min-width:720px){ figure.diagram .fig-phone{ display:none; } figure.diagram .fig-wide{ display:block; } }
+.about{ background:var(--quote); border:1px dashed var(--muted); border-radius:12px; padding:14px 18px; margin:40px 0 0; font-size:13px; color:var(--soft); }
+.about h3{ font-size:12.5px; letter-spacing:.12em; text-transform:uppercase; margin:0 0 8px; color:var(--muted); }
+.about table{ width:100%; border-collapse:collapse; font-size:12.5px; }
+.about td{ padding:4px 6px; border-bottom:1px solid var(--line); vertical-align:top; word-break:break-all; }
+.about code{ font-family:ui-monospace,Menlo,Consolas,monospace; font-size:.95em; }
+.about .blank{ display:inline-block; min-width:4em; border-bottom:1px solid var(--muted); }
+a.refresh{ font-size:.86em; color:var(--muted); text-decoration:underline dotted; margin-left:.2em; overflow-wrap:anywhere; }
+.hook{ margin-top:14px; padding-top:10px; border-top:1px dashed var(--line); }
+.hook .lead{ font-size:12.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin:0 0 4px; }
+.hook p.q{ margin:2px 0; font-style:italic; }
+.core .tablewrap{ overflow-x:auto; }
+.core table.md th,.core table.md td{ border-bottom:1px solid var(--line); padding:6px 8px; text-align:left; vertical-align:top; }
+.core table.md th{ font-weight:600; }
+.core ul.md{ margin:.6em 0 .9em 1.2em; padding:0; }
+.core ul.md li{ margin:.3em 0; }
+</style>
+
+<div class="wrap">
+<header class="top">
+  <div class="kilo">COLD RIDE — Z-414</div>
+  <h1>Ride sheet</h1>
+  <p><b>What this is.</b> A test of the lessons, not of you. There are no wrong answers. Below are six short lessons about the local network at a small office: the cables, the switch and the Wi-Fi. They are written to be read in order, from the top of the page to the bottom. Three shorter cards come from earlier lessons. Each one sits just above the lesson that leans on it, and a <b>Refresher</b> link in a lesson jumps back up to it. Please read those cards too.</p><p><b>How to log notes.</b> Read each card at your own pace. Under each card are boxes. Write a note the moment you react: a word you did not know, a sentence you had to read twice, anything that felt wrong or missing, or just "fine". After each of the six lessons comes its closing question. Answer it from memory, without scrolling back. At the end there are a few questions about the whole sitting. Blank boxes are fine.</p><p><b>This page stores nothing.</b> Nothing you type is saved, so a refresh or a closed tab loses your notes.</p><p><b>When you finish.</b> Press <b>Send my feedback on WhatsApp</b> at the bottom of the screen. It sends your notes to +1 303-888-8877 (13038888877). If WhatsApp does not open, press <b>Collect all notes</b>, copy the text, and send it to that number. <b>Send before you close the page.</b></p>
+  <div class="howto" style="margin-top:12px"><b>Compile/Send before you close the page.</b> This sheet stores nothing: when you finish, press <b>Send my feedback on WhatsApp</b> (or <b>Collect all notes</b> and copy) before you close it.</div>
+  <div class="howto" style="margin-top:12px" id="freshNote"><b>Fresh-sheet check:</b> <span id="freshMsg">checking…</span></div>
+</header>
+<main id="ride"></main>
+
+<section class="about" aria-label="About this page">
+<h3>About this page</h3>
+<p>9 cards: 6 lessons, each followed by its closing question, and 3 shorter cards that they lean on. Built 2026-10-04.</p>
+<p>Text check: <code>bcac4e4ccc11a098</code> — every copy of this ride shows the same lesson text, and this code is the same on each.</p>
+</section>
+<footer class="foot">Zuba University · ride sheet</footer>
+</div>
+
+
+<div id="collectBar">
+  <button id="collectBtn" type="button">Collect all notes <span class="n">(<span id="cN">0</span>)</span></button>
+  <button id="waBtn" type="button">Send my feedback on WhatsApp →</button>
+</div>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="All notes in ride order">
+  <div class="panel">
+    <div class="phead"><strong>All notes — in ride order</strong><button id="closeBtn" class="x" type="button">Close</button></div>
+    <p class="pnote">Every box, labelled by position — blanks kept as <code>&gt; (blank)</code> so the positions stay meaningful, with first-seen and last-seen times per card.</p>
+    <textarea id="outTa" readonly spellcheck="false"></textarea>
+    <div class="pfoot"><button id="copyBtn" class="primary" type="button">Copy to clipboard</button><span id="copyMsg" class="msg"></span></div>
+  </div>
+</div>
+
+<!-- ============================= THE LESSONS, FROM THEIR FILES ============================= -->
+<script type="text/markdown" data-core="cn-0001" data-title="How data finds a destination">
+Open WhatsApp and send a message. Open YouTube and start a video. Search something on Google. The information just appears — as if "the internet" were one place your device reaches into.
+
+It isn't one place, and it isn't one computer. Here is what actually happens.
+
+Your laptop is a **device** — a computer. So is your phone. The app or website you open runs on another device: a computer in a building somewhere, maybe in another country, always on, waiting to answer requests. (That always-on kind of device is a **[server](#)** — a computer that mostly just sits there storing, computing, and answering whoever asks, with almost no one touching it.)
+
+So the two ends are not the same: one is the device in front of you, which *asks*; the other is a server, which *answers*.
+
+Keep one more distinction clear — not a pair of similar things, but two different kinds of thing. The **devices** are the two ends. The **data** is what travels between them: a message, a video, a piece of a page. A device sends or receives; the data is the thing that gets sent.
+
+So "the internet" is not a place or a single computer. It is millions of devices — phones, laptops, and these always-on servers — passing data to each other, all day long. (That is what your "mobile data" gets spent on: real information moving back and forth.)
+
+Here is the one idea the rest of these lessons build on: a piece of data can't be delivered unless it knows where it is going. Picture each piece of data as a **parcel** handed to a courier. A parcel with no address goes nowhere. Data is the same — every piece carries a destination, or it goes nowhere.
+
+You have seen what a failed delivery looks like. "This site can't be reached." A page that spins and never loads. Underneath, the plain reason is often exactly this: the data didn't reach the right place, or nothing came back. The rest of this topic is about making that delivery work — and understanding it when it doesn't.
+</script>
+
+<script type="text/markdown" data-core="cn-0003" data-title="Two kinds of address (MAC vs IP)">
+You already know a device needs an address to be reached. Here's something that trips people up: a device actually carries *two* different labels, and they do different jobs.
+
+The first is burned into the device at the factory and never changes — your laptop's is the same today as the day it was made. It identifies the *device itself*. Its name is the **[MAC address](#)** (Media Access Control). Think of it like a national ID number: it says *who* this device is, permanently, wherever it goes.
+
+The second is the **[IP address](#)** from the last lessons — but here's the new part. A device is *not* born with an IP address. It's *given* one when it joins a network, the way you're given a room number when you check into a hotel. Join your home Wi-Fi, you get one IP. Join a café's Wi-Fi, you get a different one. The IP says *where* the device can be reached *right now*.
+
+So the two labels split cleanly:
+
+→ **MAC** — *who* the device is. Permanent. Set at the factory.
+→ **IP** — *where* the device is reachable. Assigned when it joins a network. Changes as it moves.
+
+In the parcel-delivery analogy: your MAC is your national ID — it's *you*, and it never changes. Your IP is your current mailing address — where post reaches you *now*, which is different when you move house.
+
+One thing worth settling before we move on: the MAC is permanent and unique to each device — but it's *not* the address the internet delivers to. Data travels to the IP, the *where*. And unlike the factory-set MAC, an IP is handed out and reused, never owned. Hold onto that "handed out, not owned" idea — it's about to explain almost everything.
+</script>
+
+<script type="text/markdown" data-core="cn-0127" data-title="How a device finds the MAC address that goes with an IP address on its own network (ARP)">
+Imagine an office laptop at Nyamirambo Traders, on the office network. The laptop's IP address is 192.168.0.23, and it wants to send a message to the accounts computer. It has the accounts computer's IP address, 192.168.0.41, and nothing else. Why can't the laptop just send the message to that IP address? How an IP address is written is covered in "How an IP address is written (four numbers from 0 to 255)".
+
+You already know a device has two addresses: a MAC address that names the device itself, and an IP address that says where it can be reached right now. {{REFRESH:cn-0003}} On its own network, the wire delivers a message by the MAC address of the device receiving it. That adds to what you hold; it does not undo it. The laptop has only an IP address, and it cannot work the MAC address out from that, because the two have no relationship to each other. The accounts computer is on the same network, so the laptop needs its MAC address first. The laptop has to find that MAC address out.
+
+The laptop asks. It sends one short question to everyone on the office network: who has 192.168.0.41? This asking is called ***Address Resolution Protocol (ARP)***. The question holds only addresses: the laptop's own MAC address and IP address, and the IP address being asked about. It does not carry the message the laptop wants to send. Early designers chose this over a special server, for cost and reliability.
+
+Every device on the office network receives the question, including the front-desk computer. Only the device that owns 192.168.0.41 answers, so the front-desk computer stays silent. The accounts computer sends its own MAC address, 00-00-5E-00-53-3C, straight back to the laptop, not to everyone.
+
+You already know the network writes one address on each piece of data and delivers it there, nowhere else. {{REFRESH:cn-0001}} That rule is about the laptop's data. The short question is the one exception: it goes to everyone, and the answer goes back to one device.
+
+The laptop keeps the answer in a table that pairs the IP address with the MAC address, called the ***ARP table***. Each device keeps its own table. The next time the laptop sends to 192.168.0.41, it looks in its table first, and asks everyone only when the address is not there. Entries do not last forever: they expire.
+
+{{DIAGRAM:cn0127_127r1}}
+
+You may think the laptop could look in a different list instead of asking. A device on the network gives out IP addresses (Dynamic Host Configuration Protocol (DHCP) is the name of that job) and keeps its own list of which address it gave to which device. That list records what was given out. The laptop's table records what the laptop found out by asking. They are two different lists, kept for two different jobs. How a device is given its IP address is covered in "Who hands out the address: the DHCP server".
+</script>
+
+<script type="text/markdown" data-close="cn-0127">
+At Nyamirambo Traders, how does the laptop get the MAC address that goes with IP address 192.168.0.41, who answers, and where does the laptop keep the answer?
+</script>
+
+<script type="text/plain" data-hook="cn-0127">
+When many devices are plugged into one box, how does the box know which cable leads to which device?
+</script>
+
+<script type="text/markdown" data-core="cn-0128" data-title="When many devices plug into one box, how it knows which cable leads to which device (the switch)">
+Take an office with three computers: the office laptop, the accounts computer and the front-desk computer. A cable has only two ends, so it can join only two devices. To put all three on one network, each gets its own cable to one shared box, the ***switch***, which takes each message in on one cable and carries it on to the device it is for. Wired office networks today are built this way.
+
+Why does the switch have to keep track of which cable is which, when it could send every message down every other cable, meaning every cable except the one the message came in on? Doing that always gets the message to the right device. But it uses every cable for a message meant for only one device. A switch that notes which cable each sender's MAC address arrives on can send later messages for that MAC address down that one cable.
+
+It can do this because every message carries the sender's MAC address, as well as the MAC address it is going to. You already know a MAC address is burned into a device at the factory and identifies the device itself. {{REFRESH:cn-0003}} The switch keeps a table, ***the switch's table***, that pairs a MAC address with one of the switch's own cables. The table starts empty, and nobody types anything in. When a message arrives on a cable, the switch notes the sender's MAC address and the cable it arrived on, and adds that pair. A row is dropped after a while, because a device can be moved to a different cable.
+
+In the picture, all three computers have already sent something, so the table has a row for each. The office laptop sends a message for the accounts computer. It arrives on cable 1, the cable the table pairs with the laptop's MAC address. The table pairs the accounts computer's MAC address with cable 2, so the message goes down cable 2 only. Cable 3 carries nothing.
+
+{{DIAGRAM:cn0128_128_phone}}
+
+Two kinds of message go down every other cable instead: a message for a MAC address that is not in the table, and a message sent to everyone, which can never be narrowed to one cable. A device asking everyone which MAC address goes with an IP address is an example of the second. {{REFRESH:cn-0127}}
+
+Do not mix up the switch's table with the table a device keeps from asking everyone. They are two tables, kept by two different boxes. A device's table pairs an IP address with a MAC address, and the device fills it by asking everyone. The switch's table pairs a MAC address with a cable, and the switch fills it by watching which cable messages arrive on. So when the office laptop sends a message to another computer on its own network, the switch carries it down that computer's cable; it does not need to go on to the router.
+
+On home Wi-Fi, every device around can receive what another device sends, because radio reaches every device in range. On a wired network joined by a switch, a device sees only the messages meant for it, with two exceptions: messages sent to everyone, and messages for a MAC address the switch has not yet seen.
+
+Before the front-desk computer sends anything, the table has no row for it. The switch does not know which cable leads to it, so a message for it goes down every other cable.
+</script>
+
+<script type="text/markdown" data-close="cn-0128">
+When the front-desk computer sends a first message, how does the switch find out which cable the front-desk computer's MAC address is on?
+</script>
+
+<script type="text/plain" data-hook="cn-0128">
+Is the box that gives you Wi-Fi the same thing as a router?
+</script>
+
+<script type="text/markdown" data-core="cn-0129" data-title="Is the box that gives you Wi-Fi a router? What an access point does, and what else a home Wi-Fi box does">
+Your office laptop, the accounts computer and the front-desk computer each have a cable to the office's switch. A phone has no cable at all. So how does a message from a phone get to a computer that is plugged in?
+
+With nothing to plug in, a phone needs something to take its radio messages and put them on the wired network. That something is an ***access point***: a box that passes Wi-Fi devices' messages onto the cabled network as if those devices were plugged in. In the setup drawn below, the office's Wi-Fi comes from an access point that is its own box, connected by cable 4 to the same switch the computers use.
+
+You already know a device's MAC address is burned in at the factory. {{REFRESH:cn-0003}} A phone's Wi-Fi has the same kind of MAC address, and the Wi-Fi kind and the wired kind are never meant to share a value. You also already know a plain switch sends a message for a known MAC address down one cable only. {{REFRESH:cn-0128}} So the access point can take a phone's message from the air and put it on the cable, the way a switch would.
+
+Take message 1 in the figure below. The first phone sends a message for the front-desk computer. The message goes by radio to the access point, along cable 4 to the switch, and down cable 3 to the front-desk computer. A plugged-in computer can reach a phone the same way in reverse.
+
+At home, the box people call the router is a different case. The box a home or small office calls its router is usually several jobs in one case: a router that translates addresses, a switch, an access point, and a ***Dynamic Host Configuration Protocol (DHCP) server***. In that one box, the Wi-Fi job is the access point's, the translating of addresses is the router's, and sending each message down the right cable is the switch's. How a DHCP server hands out addresses is covered in "Who hands out the address: the DHCP server".
+
+Now take message 2. The first phone sends a message to the second phone. Radio from one phone can be received by other devices in range, so you might expect the two phones to talk straight through the air. They do not. The first phone's message goes to the access point, and the access point passes it on to the second phone the way a switch would, with no router in between. So the Wi-Fi side and the cabled side are one network, not two.
+
+{{DIAGRAM:cn0129_128_phone}}
+</script>
+
+<script type="text/markdown" data-close="cn-0129">
+When the first phone messages the second phone on the same Wi-Fi, what box passes the message along, and what does that box do like a switch?
+</script>
+
+<script type="text/plain" data-hook="cn-0129">
+If my phone says it is connected to Wi-Fi, why can nothing load?
+</script>
+
+<script type="text/markdown" data-core="cn-0115" data-title="Who hands out the address: the DHCP server">
+A new laptop joins the Nyamirambo Traders network, and it is lent an IP address. You already know that DHCP does the handing out. It gives a device its IP address when the device joins the network, so nobody has to type an IP address into every device by hand. But what, on a network, does that handing out?
+
+If all you have ever seen on a home or office network is a router, and never a device labelled "DHCP server", it is easy to think that DHCP is a part of the router and that nothing else could lend an IP address. This lesson answers that.
+
+When a device joins the network, it asks for an IP address on that network. Some device on the network answers with an offer of one. That answering device is the ***DHCP server***: the name for whichever device on the network answers when a device joining the network asks for an IP address.
+
+Notice what kind of name that is. "DHCP server" is a job that a device does. It is not a kind of device. A phone is a kind of device, and so is a router. A DHCP server is whatever device is doing the answering.
+
+So different devices can do the job:
+
+(i) A router can be the DHCP server, and many routers can do that job.
+
+(ii) A separate computer can be the DHCP server instead.
+
+That is why you can see a router on a network and never see a device called a DHCP server. The router is a device. Being the DHCP server is a job. The router may be doing that job, but the word "router" does not say so, and the job does not need a router.
+
+One more fact about the job: a device is not meant to do it unless it has been set up for it.
+
+So when a device joins a network and is lent an IP address, a device that is doing the DHCP server job lent it.
+</script>
+
+<script type="text/markdown" data-core="cn-0130" data-title="What &#x27;connected to Wi-Fi&#x27; does and does not mean">
+If you have ever held a phone that you would call connected to the Wi-Fi, and nothing loaded, the cause is that getting onto the Wi-Fi and getting an address are two separate stages. At Nyamirambo Traders, a phone joins the office Wi-Fi in its own early steps. Those steps are messages between the phone and the access point only, and they are not passed on to the rest of the network. {{REFRESH:cn-0129}} The address comes afterwards, as a separate step. So the joining can work and the address step still fail.
+
+Stage one is the ***joining***. The office Wi-Fi is named NyamiramboTraders-Office, the same name on all of the office's access points. The phone finds an access point by that network name. The access point notes the phone's MAC address, so it knows how to deliver messages to it. Then the phone proves it has the right password, which at Nyamirambo Traders is one password shared by the whole office. At some sites each person has their own login instead.
+
+Stage two comes after the joining and is separate. The phone asks everyone on the network for an address, giving its own MAC address. {{REFRESH:cn-0127}} The access point is on cable 4 to the office switch, so it passes the question on down cable 4, and a DHCP server on the office network answers and lends the phone an address. {{REFRESH:cn-0115}} The same answer names the router the phone is to use, which this lesson calls its ***way out***. A phone without an address and a way out cannot function properly on the network, and a phone that loses its way out cannot communicate.
+
+{{DIAGRAM:cn0130_127}}
+
+A wrong password stops the phone at stage one: until the phone has proved it has the right password, nothing else can pass between it and the network. A right password does not finish the job. The password is one step of the joining, not all of getting on, so a phone with the right password has joined and can still have no address.
+
+Joining again runs every step again, the address step included. If your phone began working after you retyped the password, or turned the Wi-Fi off and on, it ran both stages again. This lesson does not say which step had failed before.
+
+Windows' own troubleshooting guide lists the case of a Wi-Fi connection that stays joined while network access fails. It tells the reader to check that the joining finished, and then to look at the address and the other network settings.
+
+So a phone gets onto the office network in two stages, in order: it joins the Wi-Fi with the network name and password, then it gets an address and a way out from the DHCP server. A phone that has joined can still load nothing, because the stage that gives the address and the way out is a separate one.
+</script>
+
+<script type="text/markdown" data-close="cn-0130">
+What two stages does a phone go through to get on the office network, in order, and why can a phone that has joined the Wi-Fi still load nothing?
+</script>
+
+<script type="text/plain" data-hook="cn-0130">
+Why does my Wi-Fi get slow far from the access point even though the phone still says connected?
+</script>
+
+<script type="text/markdown" data-core="cn-0131" data-title="Why Wi-Fi gets slower far from the access point (reading signal strength)">
+At Nyamirambo Traders, a phone that has joined the office Wi-Fi loads pages quickly while it is next to the office's access point. Carry the same phone to the back of the shop, and the Wi-Fi feels slow. The reason is that the ***signal*** (the radio that travels from the access point to the phone) gets weaker the further it travels, and a weaker signal makes the Wi-Fi step down to a slower speed. {{REFRESH:cn-0129}}
+
+A radio signal gets weaker the further it travels from where it was sent. Obstructions in the way, such as a wall, weaken it too. At the back of the shop the signal reaches the phone after a long way, so it arrives weaker than it did next to the access point, and weaker still if a wall stands in between.
+
+Wi-Fi can run at several speeds. When the signal arrives weaker, more of what was sent arrives with errors. When more arrives with errors, the Wi-Fi picks a slower speed, because a slower speed is easier to read correctly. So a weaker signal does not by itself mean no Wi-Fi. The Wi-Fi steps down to a slower speed, and the phone at the back of the shop gets a slower connection.
+
+{{DIAGRAM:cn0131_127}}
+
+A Wi-Fi device reports the strength of the signal it receives as a number, the ***signal strength***, in decibel-milliwatts (***dBm***). Wi-Fi values run from about -10 dBm to -90 dBm and below. A Linux computer prints the signal of the access point it is joined to as a line such as signal: -57 dBm, when it is given the command iw dev wlan0 link.
+
+At Nyamirambo Traders, a technician can read the Wi-Fi side on the access point's own admin screens, which show the list of devices joined to it and their signal. A weak signal is one fault a technician can meet on the local network.
+
+Some devices stay joined to their access point even after its signal is too weak for a reasonable speed, as long as the signal has not vanished entirely. So a device can be joined and slow. A weak signal is one cause of Wi-Fi stepping down to a slower speed, and competing transmissions are another. Competing transmissions are covered in 'Why Wi-Fi slows down when many devices use it at once (everyone shares the air)'.
+</script>
+
+<script type="text/markdown" data-close="cn-0131">
+At the back of the shop, what weakens the signal from the access point to a phone, what does the Wi-Fi do when the signal is weaker, and why?
+</script>
+
+<script type="text/plain" data-hook="cn-0131">
+Why does Wi-Fi slow down when lots of devices use it at once?
+</script>
+
+<script type="text/markdown" data-core="cn-0132" data-title="Why Wi-Fi slows down when many devices use it at once (everyone shares the air)">
+At Nyamirambo Traders, the office's phones are joined to the office Wi-Fi through the office's access point. When many of them use the Wi-Fi at the same time, each phone's Wi-Fi is slower than when only a few do. The reason is that Wi-Fi is carried by radio, and devices that are in range of each other and use the same stretch of air ***share the air***: what one device sends by radio can be received by every device in range, and when two devices send at the same time, their signals garble each other. So the devices have to wait for each other. The more devices want to send, the longer each one waits, and the slower its Wi-Fi is.
+
+{{DIAGRAM:cn0132_127}}
+
+A cable is different. You already know a switch sends a message for a known address down one cable only. {{REFRESH:cn-0128}} At Nyamirambo Traders each wired device has its own cable to the switch, so wired devices do not take turns in one shared stretch the way Wi-Fi devices do. A phone's Wi-Fi has no cable of its own. A radio message is hard to aim at one receiver, so what one device sends by radio can be received by every device in range.
+
+A Wi-Fi device cannot tell while it is still sending that its message was garbled. So it works in three steps. Before it sends, it listens. If the air is busy, it waits a short random time and listens again. After it sends, the receiver replies, and if the receiver did not reply, the device sends the message again.
+
+Every device that shares the air takes part in that waiting, whichever network it belongs to. The business next door has its own Wi-Fi network in range. Its devices that share the air with the office's phones wait for them, and the phones wait for those devices, even though the phones are not joined to that network. A device waits for another device whichever network each belongs to, as long as the two are in range of each other and use the same stretch of air. Which networks share the air is covered in 'Why Wi-Fi slows when two networks share a channel (reading the channel on the access point's admin screen)'.
+
+You already know that a weak signal gives a slower connection, and that distance and walls weaken a signal. {{REFRESH:cn-0131}} Waiting for turns in the air is a cause of slow Wi-Fi that is separate from distance and obstructions. A weak signal is one cause of slower Wi-Fi among others. ***Competing transmissions*** is the name for this other cause: devices that share the air waiting for each other.
+</script>
+
+<script type="text/markdown" data-close="cn-0132">
+Why do devices that share the air wait for each other and slow each phone's Wi-Fi, and why is this waiting a cause separate from distance?
+</script>
+
+<script type="text/markdown" data-connector-after="cn-0127" data-arc-from="cn-0128">
+When many devices are plugged into one box, how does the box know which cable leads to which device?
+
+This continues the problem from “How a device finds the MAC address that goes with an IP address on its own network (ARP)”. The problem: A message on a local network has to reach one particular device. Left open there: How a device finds the MAC address that goes with an IP address is said, but how the box the cables plug into passes the message down only the right cable is not said. This lesson takes that up.
+</script>
+
+<script type="text/markdown" data-connector-after="cn-0130" data-arc-from="cn-0131">
+Why does my Wi-Fi get slow far from the access point even though the phone still says connected?
+
+This continues the problem from “What 'connected to Wi-Fi' does and does not mean”. The problem: A device can show as connected to Wi-Fi and still not work well. Left open there: That connected does not mean working is said, but that a weak signal is one reason, and what a signal reading shows, is not said. This lesson takes that up.
+</script>
+
+<script type="text/markdown" data-connector-after="cn-0131" data-arc-from="cn-0132">
+Why does Wi-Fi slow down when lots of devices use it at once?
+
+This continues the problem from “Why Wi-Fi gets slower far from the access point (reading signal strength)”. The problem: Wi-Fi can be slow even when the device shows connected. Left open there: A weak signal is shown as one reason for slow Wi-Fi, but why Wi-Fi can be slow for a reason other than a weak signal is not said. This lesson takes that up.
+</script>
+
+<!-- ============================= FIGURES, BOTH LAYOUTS ============================= -->
+<script type="image/svg+xml" data-svg="cn0127_127r1__phone">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 470" font-family="Arial, Helvetica, sans-serif" font-size="11">
+  <title>office network</title>
+  <defs>
+    <g id="cn0127_127r1_p_GEAR-01" data-registry="GEAR-01">
+      <rect x="5" y="6" width="38" height="26" rx="3" fill="#dbe9f7" stroke="#333333" stroke-width="2"/>
+      <rect x="9" y="10" width="30" height="18" fill="#ffffff" stroke="#8aa4c0" stroke-width="1"/>
+      <rect x="20" y="32" width="8" height="6" fill="#333333"/>
+      <rect x="12" y="38" width="24" height="4" rx="1" fill="#333333"/>
+    </g>
+    <marker id="cn0127_127r1_p_qhead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/>
+    </marker>
+    <marker id="cn0127_127r1_p_ahead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1d7a3a"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="360" height="470" fill="#ffffff"/>
+
+  <line x1="330" y1="34" x2="330" y2="384" stroke="#666666" stroke-width="4"/>
+  <text x="322" y="26" text-anchor="end" font-weight="bold" fill="#333333">office network</text>
+
+  <line x1="63" y1="73" x2="330" y2="73" stroke="#bbbbbb" stroke-width="3"/>
+  <line x1="63" y1="264" x2="330" y2="264" stroke="#bbbbbb" stroke-width="3"/>
+  <line x1="63" y1="384" x2="330" y2="384" stroke="#bbbbbb" stroke-width="3"/>
+
+  <use href="#cn0127_127r1_p_GEAR-01" transform="translate(20,49)"/>
+  <text x="20" y="108" font-weight="bold" fill="#222222">laptop</text>
+  <text x="20" y="124" fill="#666666">IP address</text>
+  <text x="95" y="124" fill="#222222">192.168.0.23</text>
+  <text x="20" y="140" fill="#666666">MAC address</text>
+  <text x="95" y="140" fill="#222222">00-00-5E-00-53-A6</text>
+
+  <use href="#cn0127_127r1_p_GEAR-01" transform="translate(20,240)"/>
+  <text x="20" y="300" font-weight="bold" fill="#222222">accounts computer</text>
+  <text x="20" y="316" fill="#666666">IP address</text>
+  <text x="95" y="316" fill="#222222">192.168.0.41</text>
+  <text x="20" y="332" fill="#666666">MAC address</text>
+  <text x="95" y="332" fill="#222222">00-00-5E-00-53-3C</text>
+
+  <use href="#cn0127_127r1_p_GEAR-01" transform="translate(20,360)"/>
+  <text x="20" y="420" font-weight="bold" fill="#222222">front-desk computer</text>
+  <text x="20" y="436" fill="#666666">IP address</text>
+  <text x="95" y="436" fill="#222222">192.168.0.88</text>
+  <text x="20" y="452" fill="#666666">MAC address</text>
+  <text x="95" y="452" fill="#222222">00-00-5E-00-53-D1</text>
+
+  <line x1="78" y1="66" x2="326" y2="66" stroke="#1f5fa8" stroke-width="2" marker-end="url(#cn0127_127r1_p_qhead)"/>
+  <line x1="326" y1="257" x2="78" y2="257" stroke="#1f5fa8" stroke-width="2" marker-end="url(#cn0127_127r1_p_qhead)"/>
+  <line x1="326" y1="377" x2="78" y2="377" stroke="#1f5fa8" stroke-width="2" marker-end="url(#cn0127_127r1_p_qhead)"/>
+
+  <line x1="326" y1="80" x2="78" y2="80" stroke="#1d7a3a" stroke-width="2" marker-end="url(#cn0127_127r1_p_ahead)"/>
+  <line x1="78" y1="271" x2="326" y2="271" stroke="#1d7a3a" stroke-width="2" marker-end="url(#cn0127_127r1_p_ahead)"/>
+
+  <text x="110" y="40" fill="#1f5fa8"><tspan x="110" dy="0">question to everyone:</tspan><tspan x="110" dy="12">who has 192.168.0.41?</tspan></text>
+  <text x="110" y="97" fill="#1d7a3a"><tspan x="110" dy="0">answer to the laptop only:</tspan><tspan x="110" dy="12">00-00-5E-00-53-3C</tspan></text>
+  <text x="110" y="403" font-style="italic" fill="#666666">does not answer</text>
+
+  <rect x="20" y="158" width="280" height="56" fill="#f7f7f7" stroke="#333333" stroke-width="1.5"/>
+  <line x1="130" y1="176" x2="130" y2="214" stroke="#333333" stroke-width="1"/>
+  <line x1="20" y1="176" x2="300" y2="176" stroke="#333333" stroke-width="1"/>
+  <line x1="20" y1="195" x2="300" y2="195" stroke="#333333" stroke-width="1"/>
+  <text x="28" y="171" font-weight="bold" fill="#222222">laptop's table</text>
+  <text x="28" y="190" fill="#666666">IP address</text>
+  <text x="138" y="190" fill="#666666">MAC address</text>
+  <text x="28" y="209" fill="#222222">192.168.0.41</text>
+  <text x="138" y="209" fill="#222222">00-00-5E-00-53-3C</text>
+</svg>
+</script>
+
+<script type="image/svg+xml" data-svg="cn0127_127r1__wide">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 470" font-family="Arial, Helvetica, sans-serif" font-size="11">
+  <title>office network</title>
+  <defs>
+    <g id="cn0127_127r1_w_GEAR-01" data-registry="GEAR-01">
+      <rect x="5" y="6" width="38" height="26" rx="3" fill="#dbe9f7" stroke="#333333" stroke-width="2"/>
+      <rect x="9" y="10" width="30" height="18" fill="#ffffff" stroke="#8aa4c0" stroke-width="1"/>
+      <rect x="20" y="32" width="8" height="6" fill="#333333"/>
+      <rect x="12" y="38" width="24" height="4" rx="1" fill="#333333"/>
+    </g>
+    <marker id="cn0127_127r1_w_qhead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/>
+    </marker>
+    <marker id="cn0127_127r1_w_ahead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1d7a3a"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="360" height="470" fill="#ffffff"/>
+
+  <line x1="330" y1="34" x2="330" y2="384" stroke="#666666" stroke-width="4"/>
+  <text x="322" y="26" text-anchor="end" font-weight="bold" fill="#333333">office network</text>
+
+  <line x1="63" y1="73" x2="330" y2="73" stroke="#bbbbbb" stroke-width="3"/>
+  <line x1="63" y1="264" x2="330" y2="264" stroke="#bbbbbb" stroke-width="3"/>
+  <line x1="63" y1="384" x2="330" y2="384" stroke="#bbbbbb" stroke-width="3"/>
+
+  <use href="#cn0127_127r1_w_GEAR-01" transform="translate(20,49)"/>
+  <text x="20" y="108" font-weight="bold" fill="#222222">laptop</text>
+  <text x="20" y="124" fill="#666666">IP address</text>
+  <text x="95" y="124" fill="#222222">192.168.0.23</text>
+  <text x="20" y="140" fill="#666666">MAC address</text>
+  <text x="95" y="140" fill="#222222">00-00-5E-00-53-A6</text>
+
+  <use href="#cn0127_127r1_w_GEAR-01" transform="translate(20,240)"/>
+  <text x="20" y="300" font-weight="bold" fill="#222222">accounts computer</text>
+  <text x="20" y="316" fill="#666666">IP address</text>
+  <text x="95" y="316" fill="#222222">192.168.0.41</text>
+  <text x="20" y="332" fill="#666666">MAC address</text>
+  <text x="95" y="332" fill="#222222">00-00-5E-00-53-3C</text>
+
+  <use href="#cn0127_127r1_w_GEAR-01" transform="translate(20,360)"/>
+  <text x="20" y="420" font-weight="bold" fill="#222222">front-desk computer</text>
+  <text x="20" y="436" fill="#666666">IP address</text>
+  <text x="95" y="436" fill="#222222">192.168.0.88</text>
+  <text x="20" y="452" fill="#666666">MAC address</text>
+  <text x="95" y="452" fill="#222222">00-00-5E-00-53-D1</text>
+
+  <line x1="78" y1="66" x2="326" y2="66" stroke="#1f5fa8" stroke-width="2" marker-end="url(#cn0127_127r1_w_qhead)"/>
+  <line x1="326" y1="257" x2="78" y2="257" stroke="#1f5fa8" stroke-width="2" marker-end="url(#cn0127_127r1_w_qhead)"/>
+  <line x1="326" y1="377" x2="78" y2="377" stroke="#1f5fa8" stroke-width="2" marker-end="url(#cn0127_127r1_w_qhead)"/>
+
+  <line x1="326" y1="80" x2="78" y2="80" stroke="#1d7a3a" stroke-width="2" marker-end="url(#cn0127_127r1_w_ahead)"/>
+  <line x1="78" y1="271" x2="326" y2="271" stroke="#1d7a3a" stroke-width="2" marker-end="url(#cn0127_127r1_w_ahead)"/>
+
+  <text x="110" y="40" fill="#1f5fa8"><tspan x="110" dy="0">question to everyone:</tspan><tspan x="110" dy="12">who has 192.168.0.41?</tspan></text>
+  <text x="110" y="97" fill="#1d7a3a"><tspan x="110" dy="0">answer to the laptop only:</tspan><tspan x="110" dy="12">00-00-5E-00-53-3C</tspan></text>
+  <text x="110" y="403" font-style="italic" fill="#666666">does not answer</text>
+
+  <rect x="20" y="158" width="280" height="56" fill="#f7f7f7" stroke="#333333" stroke-width="1.5"/>
+  <line x1="130" y1="176" x2="130" y2="214" stroke="#333333" stroke-width="1"/>
+  <line x1="20" y1="176" x2="300" y2="176" stroke="#333333" stroke-width="1"/>
+  <line x1="20" y1="195" x2="300" y2="195" stroke="#333333" stroke-width="1"/>
+  <text x="28" y="171" font-weight="bold" fill="#222222">laptop's table</text>
+  <text x="28" y="190" fill="#666666">IP address</text>
+  <text x="138" y="190" fill="#666666">MAC address</text>
+  <text x="28" y="209" fill="#222222">192.168.0.41</text>
+  <text x="138" y="209" fill="#222222">00-00-5E-00-53-3C</text>
+</svg>
+</script>
+
+<script type="image/svg+xml" data-svg="cn0128_128_phone__phone">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 480" font-family="Arial, Helvetica, sans-serif" font-size="11">
+  <title>switch</title>
+  <defs>
+    <g id="cn0128_128_phone_p_GEAR-01" data-registry="GEAR-01">
+      <rect x="5" y="6" width="38" height="26" rx="3" fill="#dbe9f7" stroke="#333333" stroke-width="2"/>
+      <rect x="9" y="10" width="30" height="18" fill="#ffffff" stroke="#8aa4c0" stroke-width="1"/>
+      <rect x="20" y="32" width="8" height="6" fill="#333333"/>
+      <rect x="12" y="38" width="24" height="4" rx="1" fill="#333333"/>
+    </g>
+    <g id="cn0128_128_phone_p_GEAR-NEW-1" data-registry="GEAR-NEW-1">
+      <rect x="0" y="0" width="52" height="30" rx="3" fill="#dbe9f7" stroke="#333333" stroke-width="2"/>
+      <path d="M8,10 L42,10 M36,5 L42,10 L36,15" fill="none" stroke="#333333" stroke-width="2"/>
+      <path d="M44,21 L10,21 M16,16 L10,21 L16,26" fill="none" stroke="#333333" stroke-width="2"/>
+    </g>
+    <marker id="cn0128_128_phone_p_mhead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="360" height="480" fill="#ffffff"/>
+
+  <!-- the switch -->
+  <rect x="222" y="40" width="113" height="290" rx="4" fill="#f3f6fa" stroke="#333333" stroke-width="2"/>
+  <use href="#cn0128_128_phone_p_GEAR-NEW-1" transform="translate(252,150)"/>
+  <text x="278" y="200" text-anchor="middle" font-weight="bold" fill="#222222">switch</text>
+
+  <!-- cables -->
+  <line x1="68" y1="64" x2="222" y2="64" stroke="#bbbbbb" stroke-width="3"/>
+  <line x1="68" y1="184" x2="222" y2="184" stroke="#bbbbbb" stroke-width="3"/>
+  <line x1="68" y1="304" x2="222" y2="304" stroke="#bbbbbb" stroke-width="3" stroke-dasharray="6 5"/>
+
+  <text x="145" y="56" text-anchor="middle" fill="#666666">cable 1</text>
+  <text x="145" y="176" text-anchor="middle" fill="#666666">cable 2</text>
+  <text x="145" y="296" text-anchor="middle" fill="#666666">cable 3</text>
+
+  <!-- devices -->
+  <use href="#cn0128_128_phone_p_GEAR-01" transform="translate(20,45)"/>
+  <text x="20" y="103" font-weight="bold" fill="#222222">office laptop</text>
+  <use href="#cn0128_128_phone_p_GEAR-01" transform="translate(20,165)"/>
+  <text x="20" y="223" font-weight="bold" fill="#222222">accounts computer</text>
+  <use href="#cn0128_128_phone_p_GEAR-01" transform="translate(20,285)"/>
+  <text x="20" y="343" font-weight="bold" fill="#222222">front-desk computer</text>
+
+  <!-- the one message: in on cable 1, out on cable 2 only -->
+  <line x1="74" y1="72" x2="218" y2="72" stroke="#1f5fa8" stroke-width="2" marker-end="url(#cn0128_128_phone_p_mhead)"/>
+  <line x1="218" y1="192" x2="74" y2="192" stroke="#1f5fa8" stroke-width="2" marker-end="url(#cn0128_128_phone_p_mhead)"/>
+  <text x="105" y="86" fill="#1f5fa8"><tspan x="105" dy="0">message for the</tspan><tspan x="105" dy="12">accounts computer</tspan></text>
+  <text x="145" y="322" text-anchor="middle" font-style="italic" fill="#666666">not used</text>
+
+  <!-- the switch's table -->
+  <rect x="20" y="372" width="320" height="88" fill="#f7f7f7" stroke="#333333" stroke-width="1.5"/>
+  <line x1="20" y1="394" x2="340" y2="394" stroke="#333333" stroke-width="1"/>
+  <line x1="20" y1="416" x2="340" y2="416" stroke="#333333" stroke-width="1"/>
+  <line x1="20" y1="438" x2="340" y2="438" stroke="#333333" stroke-width="1"/>
+  <line x1="245" y1="394" x2="245" y2="460" stroke="#333333" stroke-width="1"/>
+  <text x="28" y="388" font-weight="bold" fill="#222222">the switch's table</text>
+  <text x="28" y="410" fill="#222222">MAC address of office laptop</text>
+  <text x="253" y="410" fill="#222222">cable 1</text>
+  <text x="28" y="432" fill="#222222">MAC address of accounts computer</text>
+  <text x="253" y="432" fill="#222222">cable 2</text>
+  <text x="28" y="454" fill="#222222">MAC address of front-desk computer</text>
+  <text x="253" y="454" fill="#222222">cable 3</text>
+</svg>
+</script>
+
+<script type="image/svg+xml" data-svg="cn0128_128_phone__wide">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 480" font-family="Arial, Helvetica, sans-serif" font-size="11">
+  <title>switch</title>
+  <defs>
+    <g id="cn0128_128_phone_w_GEAR-01" data-registry="GEAR-01">
+      <rect x="5" y="6" width="38" height="26" rx="3" fill="#dbe9f7" stroke="#333333" stroke-width="2"/>
+      <rect x="9" y="10" width="30" height="18" fill="#ffffff" stroke="#8aa4c0" stroke-width="1"/>
+      <rect x="20" y="32" width="8" height="6" fill="#333333"/>
+      <rect x="12" y="38" width="24" height="4" rx="1" fill="#333333"/>
+    </g>
+    <g id="cn0128_128_phone_w_GEAR-NEW-1" data-registry="GEAR-NEW-1">
+      <rect x="0" y="0" width="52" height="30" rx="3" fill="#dbe9f7" stroke="#333333" stroke-width="2"/>
+      <path d="M8,10 L42,10 M36,5 L42,10 L36,15" fill="none" stroke="#333333" stroke-width="2"/>
+      <path d="M44,21 L10,21 M16,16 L10,21 L16,26" fill="none" stroke="#333333" stroke-width="2"/>
+    </g>
+    <marker id="cn0128_128_phone_w_mhead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="360" height="480" fill="#ffffff"/>
+
+  <!-- the switch -->
+  <rect x="222" y="40" width="113" height="290" rx="4" fill="#f3f6fa" stroke="#333333" stroke-width="2"/>
+  <use href="#cn0128_128_phone_w_GEAR-NEW-1" transform="translate(252,150)"/>
+  <text x="278" y="200" text-anchor="middle" font-weight="bold" fill="#222222">switch</text>
+
+  <!-- cables -->
+  <line x1="68" y1="64" x2="222" y2="64" stroke="#bbbbbb" stroke-width="3"/>
+  <line x1="68" y1="184" x2="222" y2="184" stroke="#bbbbbb" stroke-width="3"/>
+  <line x1="68" y1="304" x2="222" y2="304" stroke="#bbbbbb" stroke-width="3" stroke-dasharray="6 5"/>
+
+  <text x="145" y="56" text-anchor="middle" fill="#666666">cable 1</text>
+  <text x="145" y="176" text-anchor="middle" fill="#666666">cable 2</text>
+  <text x="145" y="296" text-anchor="middle" fill="#666666">cable 3</text>
+
+  <!-- devices -->
+  <use href="#cn0128_128_phone_w_GEAR-01" transform="translate(20,45)"/>
+  <text x="20" y="103" font-weight="bold" fill="#222222">office laptop</text>
+  <use href="#cn0128_128_phone_w_GEAR-01" transform="translate(20,165)"/>
+  <text x="20" y="223" font-weight="bold" fill="#222222">accounts computer</text>
+  <use href="#cn0128_128_phone_w_GEAR-01" transform="translate(20,285)"/>
+  <text x="20" y="343" font-weight="bold" fill="#222222">front-desk computer</text>
+
+  <!-- the one message: in on cable 1, out on cable 2 only -->
+  <line x1="74" y1="72" x2="218" y2="72" stroke="#1f5fa8" stroke-width="2" marker-end="url(#cn0128_128_phone_w_mhead)"/>
+  <line x1="218" y1="192" x2="74" y2="192" stroke="#1f5fa8" stroke-width="2" marker-end="url(#cn0128_128_phone_w_mhead)"/>
+  <text x="105" y="86" fill="#1f5fa8"><tspan x="105" dy="0">message for the</tspan><tspan x="105" dy="12">accounts computer</tspan></text>
+  <text x="145" y="322" text-anchor="middle" font-style="italic" fill="#666666">not used</text>
+
+  <!-- the switch's table -->
+  <rect x="20" y="372" width="320" height="88" fill="#f7f7f7" stroke="#333333" stroke-width="1.5"/>
+  <line x1="20" y1="394" x2="340" y2="394" stroke="#333333" stroke-width="1"/>
+  <line x1="20" y1="416" x2="340" y2="416" stroke="#333333" stroke-width="1"/>
+  <line x1="20" y1="438" x2="340" y2="438" stroke="#333333" stroke-width="1"/>
+  <line x1="245" y1="394" x2="245" y2="460" stroke="#333333" stroke-width="1"/>
+  <text x="28" y="388" font-weight="bold" fill="#222222">the switch's table</text>
+  <text x="28" y="410" fill="#222222">MAC address of office laptop</text>
+  <text x="253" y="410" fill="#222222">cable 1</text>
+  <text x="28" y="432" fill="#222222">MAC address of accounts computer</text>
+  <text x="253" y="432" fill="#222222">cable 2</text>
+  <text x="28" y="454" fill="#222222">MAC address of front-desk computer</text>
+  <text x="253" y="454" fill="#222222">cable 3</text>
+</svg>
+</script>
+
+<script type="image/svg+xml" data-svg="cn0129_128_phone__phone">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 490" font-family="Arial, Helvetica, sans-serif" font-size="11">
+  <title>access point</title>
+  <defs>
+    <g id="cn0129_128_phone_p_GEAR-01" data-registry="GEAR-01">
+      <rect x="5" y="6" width="38" height="26" rx="3" fill="#dbe9f7" stroke="#333333" stroke-width="2"/>
+      <rect x="9" y="10" width="30" height="18" fill="#ffffff" stroke="#8aa4c0" stroke-width="1"/>
+      <rect x="20" y="32" width="8" height="6" fill="#333333"/>
+      <rect x="12" y="38" width="24" height="4" rx="1" fill="#333333"/>
+    </g>
+    <g id="cn0129_128_phone_p_GEAR-NEW-1" data-registry="GEAR-NEW-1">
+      <rect x="0" y="0" width="52" height="30" rx="3" fill="#dbe9f7" stroke="#333333" stroke-width="2"/>
+      <path d="M8,10 L42,10 M36,5 L42,10 L36,15" fill="none" stroke="#333333" stroke-width="2"/>
+      <path d="M44,21 L10,21 M16,16 L10,21 L16,26" fill="none" stroke="#333333" stroke-width="2"/>
+    </g>
+    <g id="cn0129_128_phone_p_GEAR-NEW-2" data-registry="GEAR-NEW-2">
+      <rect x="0" y="0" width="52" height="30" rx="3" fill="#dbe9f7" stroke="#333333" stroke-width="2"/>
+      <circle cx="26" cy="22" r="2.5" fill="#333333"/>
+      <path d="M20,16 q6,-6 12,0" fill="none" stroke="#333333" stroke-width="2"/>
+      <path d="M14,11 q12,-11 24,0" fill="none" stroke="#333333" stroke-width="2"/>
+    </g>
+    <g id="cn0129_128_phone_p_GEAR-NEW-3" data-registry="GEAR-NEW-3">
+      <rect x="0" y="0" width="28" height="44" rx="4" fill="#dbe9f7" stroke="#333333" stroke-width="2"/>
+      <rect x="3" y="5" width="22" height="30" fill="#ffffff" stroke="#8aa4c0" stroke-width="1"/>
+      <circle cx="14" cy="40" r="2" fill="#333333"/>
+    </g>
+    <marker id="cn0129_128_phone_p_mhead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/>
+    </marker>
+    <marker id="cn0129_128_phone_p_mhead2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c05a00"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="360" height="490" fill="#ffffff"/>
+
+  <!-- the switch -->
+  <rect x="222" y="40" width="113" height="210" rx="4" fill="#f3f6fa" stroke="#333333" stroke-width="2"/>
+  <use href="#cn0129_128_phone_p_GEAR-NEW-1" transform="translate(252,115)"/>
+  <text x="278" y="165" text-anchor="middle" font-weight="bold" fill="#222222">switch</text>
+
+  <!-- cables -->
+  <line x1="68" y1="64" x2="222" y2="64" stroke="#bbbbbb" stroke-width="3"/>
+  <line x1="68" y1="144" x2="222" y2="144" stroke="#bbbbbb" stroke-width="3"/>
+  <line x1="68" y1="224" x2="222" y2="224" stroke="#bbbbbb" stroke-width="3"/>
+  <line x1="278" y1="250" x2="278" y2="330" stroke="#bbbbbb" stroke-width="3"/>
+
+  <text x="145" y="56" text-anchor="middle" fill="#666666">cable 1</text>
+  <text x="145" y="136" text-anchor="middle" fill="#666666">cable 2</text>
+  <text x="145" y="216" text-anchor="middle" fill="#666666">cable 3</text>
+  <text x="270" y="294" text-anchor="end" fill="#666666">cable 4</text>
+
+  <!-- the wired devices -->
+  <use href="#cn0129_128_phone_p_GEAR-01" transform="translate(20,45)"/>
+  <text x="20" y="103" font-weight="bold" fill="#222222">office laptop</text>
+  <use href="#cn0129_128_phone_p_GEAR-01" transform="translate(20,125)"/>
+  <text x="20" y="183" font-weight="bold" fill="#222222">accounts computer</text>
+  <use href="#cn0129_128_phone_p_GEAR-01" transform="translate(20,205)"/>
+  <text x="20" y="263" font-weight="bold" fill="#222222">front-desk computer</text>
+
+  <!-- the access point -->
+  <use href="#cn0129_128_phone_p_GEAR-NEW-2" transform="translate(252,330)"/>
+  <text x="309" y="342" font-weight="bold" fill="#222222"><tspan x="309" dy="0">access</tspan><tspan x="309" dy="12">point</tspan></text>
+
+  <!-- the phones -->
+  <use href="#cn0129_128_phone_p_GEAR-NEW-3" transform="translate(34,307)"/>
+  <text x="48" y="366" text-anchor="middle" font-weight="bold" fill="#222222">first phone</text>
+  <use href="#cn0129_128_phone_p_GEAR-NEW-3" transform="translate(34,410)"/>
+  <text x="48" y="468" text-anchor="middle" font-weight="bold" fill="#222222">second phone</text>
+
+  <!-- radio lines (wavy) -->
+  <g transform="translate(70,327) rotate(5.71)">
+    <path d="M0,0 q5,-5 10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0" fill="none" stroke="#888888" stroke-width="2"/>
+  </g>
+  <g transform="translate(70,430) rotate(-19.7)">
+    <path d="M0,0 q5.05,-5 10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0" fill="none" stroke="#888888" stroke-width="2"/>
+  </g>
+
+  <!-- message 1: first phone, access point, cable 4, switch, cable 3 -->
+  <line x1="76" y1="318" x2="244" y2="335" stroke="#1f5fa8" stroke-width="2" marker-end="url(#cn0129_128_phone_p_mhead)"/>
+  <text x="130" y="313" fill="#1f5fa8">message 1</text>
+  <line x1="290" y1="326" x2="290" y2="256" stroke="#1f5fa8" stroke-width="2" marker-end="url(#cn0129_128_phone_p_mhead)"/>
+  <text x="298" y="294" fill="#1f5fa8">message 1</text>
+  <line x1="218" y1="232" x2="74" y2="232" stroke="#1f5fa8" stroke-width="2" marker-end="url(#cn0129_128_phone_p_mhead)"/>
+  <text x="105" y="247" fill="#1f5fa8">message 1</text>
+
+  <!-- message 2: first phone, access point, second phone -->
+  <line x1="76" y1="337" x2="244" y2="354" stroke="#c05a00" stroke-width="2" marker-end="url(#cn0129_128_phone_p_mhead2)"/>
+  <text x="130" y="360" fill="#c05a00">message 2</text>
+  <line x1="254" y1="374" x2="82" y2="435" stroke="#c05a00" stroke-width="2" marker-end="url(#cn0129_128_phone_p_mhead2)"/>
+  <text x="150" y="428" fill="#c05a00">message 2</text>
+</svg>
+</script>
+
+<script type="image/svg+xml" data-svg="cn0129_128_phone__wide">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 490" font-family="Arial, Helvetica, sans-serif" font-size="11">
+  <title>access point</title>
+  <defs>
+    <g id="cn0129_128_phone_w_GEAR-01" data-registry="GEAR-01">
+      <rect x="5" y="6" width="38" height="26" rx="3" fill="#dbe9f7" stroke="#333333" stroke-width="2"/>
+      <rect x="9" y="10" width="30" height="18" fill="#ffffff" stroke="#8aa4c0" stroke-width="1"/>
+      <rect x="20" y="32" width="8" height="6" fill="#333333"/>
+      <rect x="12" y="38" width="24" height="4" rx="1" fill="#333333"/>
+    </g>
+    <g id="cn0129_128_phone_w_GEAR-NEW-1" data-registry="GEAR-NEW-1">
+      <rect x="0" y="0" width="52" height="30" rx="3" fill="#dbe9f7" stroke="#333333" stroke-width="2"/>
+      <path d="M8,10 L42,10 M36,5 L42,10 L36,15" fill="none" stroke="#333333" stroke-width="2"/>
+      <path d="M44,21 L10,21 M16,16 L10,21 L16,26" fill="none" stroke="#333333" stroke-width="2"/>
+    </g>
+    <g id="cn0129_128_phone_w_GEAR-NEW-2" data-registry="GEAR-NEW-2">
+      <rect x="0" y="0" width="52" height="30" rx="3" fill="#dbe9f7" stroke="#333333" stroke-width="2"/>
+      <circle cx="26" cy="22" r="2.5" fill="#333333"/>
+      <path d="M20,16 q6,-6 12,0" fill="none" stroke="#333333" stroke-width="2"/>
+      <path d="M14,11 q12,-11 24,0" fill="none" stroke="#333333" stroke-width="2"/>
+    </g>
+    <g id="cn0129_128_phone_w_GEAR-NEW-3" data-registry="GEAR-NEW-3">
+      <rect x="0" y="0" width="28" height="44" rx="4" fill="#dbe9f7" stroke="#333333" stroke-width="2"/>
+      <rect x="3" y="5" width="22" height="30" fill="#ffffff" stroke="#8aa4c0" stroke-width="1"/>
+      <circle cx="14" cy="40" r="2" fill="#333333"/>
+    </g>
+    <marker id="cn0129_128_phone_w_mhead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/>
+    </marker>
+    <marker id="cn0129_128_phone_w_mhead2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c05a00"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="360" height="490" fill="#ffffff"/>
+
+  <!-- the switch -->
+  <rect x="222" y="40" width="113" height="210" rx="4" fill="#f3f6fa" stroke="#333333" stroke-width="2"/>
+  <use href="#cn0129_128_phone_w_GEAR-NEW-1" transform="translate(252,115)"/>
+  <text x="278" y="165" text-anchor="middle" font-weight="bold" fill="#222222">switch</text>
+
+  <!-- cables -->
+  <line x1="68" y1="64" x2="222" y2="64" stroke="#bbbbbb" stroke-width="3"/>
+  <line x1="68" y1="144" x2="222" y2="144" stroke="#bbbbbb" stroke-width="3"/>
+  <line x1="68" y1="224" x2="222" y2="224" stroke="#bbbbbb" stroke-width="3"/>
+  <line x1="278" y1="250" x2="278" y2="330" stroke="#bbbbbb" stroke-width="3"/>
+
+  <text x="145" y="56" text-anchor="middle" fill="#666666">cable 1</text>
+  <text x="145" y="136" text-anchor="middle" fill="#666666">cable 2</text>
+  <text x="145" y="216" text-anchor="middle" fill="#666666">cable 3</text>
+  <text x="270" y="294" text-anchor="end" fill="#666666">cable 4</text>
+
+  <!-- the wired devices -->
+  <use href="#cn0129_128_phone_w_GEAR-01" transform="translate(20,45)"/>
+  <text x="20" y="103" font-weight="bold" fill="#222222">office laptop</text>
+  <use href="#cn0129_128_phone_w_GEAR-01" transform="translate(20,125)"/>
+  <text x="20" y="183" font-weight="bold" fill="#222222">accounts computer</text>
+  <use href="#cn0129_128_phone_w_GEAR-01" transform="translate(20,205)"/>
+  <text x="20" y="263" font-weight="bold" fill="#222222">front-desk computer</text>
+
+  <!-- the access point -->
+  <use href="#cn0129_128_phone_w_GEAR-NEW-2" transform="translate(252,330)"/>
+  <text x="309" y="342" font-weight="bold" fill="#222222"><tspan x="309" dy="0">access</tspan><tspan x="309" dy="12">point</tspan></text>
+
+  <!-- the phones -->
+  <use href="#cn0129_128_phone_w_GEAR-NEW-3" transform="translate(34,307)"/>
+  <text x="48" y="366" text-anchor="middle" font-weight="bold" fill="#222222">first phone</text>
+  <use href="#cn0129_128_phone_w_GEAR-NEW-3" transform="translate(34,410)"/>
+  <text x="48" y="468" text-anchor="middle" font-weight="bold" fill="#222222">second phone</text>
+
+  <!-- radio lines (wavy) -->
+  <g transform="translate(70,327) rotate(5.71)">
+    <path d="M0,0 q5,-5 10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0 t10,0" fill="none" stroke="#888888" stroke-width="2"/>
+  </g>
+  <g transform="translate(70,430) rotate(-19.7)">
+    <path d="M0,0 q5.05,-5 10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0 t10.1,0" fill="none" stroke="#888888" stroke-width="2"/>
+  </g>
+
+  <!-- message 1: first phone, access point, cable 4, switch, cable 3 -->
+  <line x1="76" y1="318" x2="244" y2="335" stroke="#1f5fa8" stroke-width="2" marker-end="url(#cn0129_128_phone_w_mhead)"/>
+  <text x="130" y="313" fill="#1f5fa8">message 1</text>
+  <line x1="290" y1="326" x2="290" y2="256" stroke="#1f5fa8" stroke-width="2" marker-end="url(#cn0129_128_phone_w_mhead)"/>
+  <text x="298" y="294" fill="#1f5fa8">message 1</text>
+  <line x1="218" y1="232" x2="74" y2="232" stroke="#1f5fa8" stroke-width="2" marker-end="url(#cn0129_128_phone_w_mhead)"/>
+  <text x="105" y="247" fill="#1f5fa8">message 1</text>
+
+  <!-- message 2: first phone, access point, second phone -->
+  <line x1="76" y1="337" x2="244" y2="354" stroke="#c05a00" stroke-width="2" marker-end="url(#cn0129_128_phone_w_mhead2)"/>
+  <text x="130" y="360" fill="#c05a00">message 2</text>
+  <line x1="254" y1="374" x2="82" y2="435" stroke="#c05a00" stroke-width="2" marker-end="url(#cn0129_128_phone_w_mhead2)"/>
+  <text x="150" y="428" fill="#c05a00">message 2</text>
+</svg>
+</script>
+
+<script type="image/svg+xml" data-svg="cn0130_127__phone">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 420" font-family="Arial, Helvetica, sans-serif" font-size="11">
+  <title>office network</title>
+  <defs>
+    <g id="cn0130_127_p_GEAR-06_switch" data-registry="GEAR-06">
+      <rect x="1" y="1" width="258" height="34" rx="6" fill="#2b6cb0" stroke="#1a4a80" stroke-width="2"/>
+      <g stroke="#ffffff" stroke-width="2" stroke-linecap="round">
+        <line x1="41" y1="26" x2="59" y2="26"/>
+        <line x1="101" y1="26" x2="119" y2="26"/>
+        <line x1="161" y1="26" x2="179" y2="26"/>
+        <line x1="221" y1="26" x2="239" y2="26"/>
+      </g>
+      <g fill="#ffffff">
+        <polygon points="34,26 42,22 42,30"/>
+        <polygon points="66,26 58,22 58,30"/>
+        <polygon points="94,26 102,22 102,30"/>
+        <polygon points="126,26 118,22 118,30"/>
+        <polygon points="154,26 162,22 162,30"/>
+        <polygon points="186,26 178,22 178,30"/>
+        <polygon points="214,26 222,22 222,30"/>
+        <polygon points="246,26 238,22 238,30"/>
+      </g>
+    </g>
+    <g id="cn0130_127_p_ACCESS-POINT_proposed" data-registry="none">
+      <rect x="2" y="4" width="36" height="32" rx="6" fill="#2f855a" stroke="#1d5a3b" stroke-width="2"/>
+      <g fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round">
+        <path d="M14.3,22.3 A8,8 0 0 1 25.7,22.3"/>
+        <path d="M10.1,18.1 A14,14 0 0 1 29.9,18.1"/>
+      </g>
+      <circle cx="20" cy="28" r="2.2" fill="#ffffff"/>
+    </g>
+    <g id="cn0130_127_p_PHONE_proposed" data-registry="none">
+      <rect x="2" y="2" width="24" height="36" rx="4" fill="#dbe9f7" stroke="#333333" stroke-width="2"/>
+      <rect x="6" y="7" width="16" height="22" fill="#ffffff" stroke="#8aa4c0" stroke-width="1"/>
+      <circle cx="14" cy="33.5" r="2" fill="#333333"/>
+    </g>
+    <g id="cn0130_127_p_DHCP-SERVER_proposed" data-registry="none">
+      <rect x="2" y="2" width="52" height="52" rx="8" fill="#faf5ff" stroke="#6b46c1" stroke-width="2" stroke-dasharray="5,3"/>
+      <rect x="12" y="11" width="32" height="14" rx="2" fill="#6b46c1"/>
+      <rect x="12" y="31" width="32" height="14" rx="2" fill="#6b46c1"/>
+      <circle cx="18" cy="18" r="2" fill="#ffffff"/>
+      <circle cx="18" cy="38" r="2" fill="#ffffff"/>
+      <line x1="25" y1="18" x2="38" y2="18" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+      <line x1="25" y1="38" x2="38" y2="38" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    <marker id="cn0130_127_p_mblue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/>
+    </marker>
+    <marker id="cn0130_127_p_morange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c05621"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="380" height="420" fill="#ffffff"/>
+
+  <line x1="190" y1="98" x2="190" y2="190" stroke="#666666" stroke-width="4"/>
+  <line x1="290" y1="232" x2="290" y2="332" stroke="#666666" stroke-width="4"/>
+
+  <use href="#cn0130_127_p_DHCP-SERVER_proposed" transform="translate(162,16)"/>
+  <text x="190" y="90" text-anchor="middle" font-weight="bold" fill="#222222">DHCP server</text>
+
+  <line x1="199" y1="188" x2="199" y2="100" stroke="#1f5fa8" stroke-width="2" marker-end="url(#cn0130_127_p_mblue)"/>
+  <line x1="181" y1="100" x2="181" y2="188" stroke="#1f5fa8" stroke-width="2" marker-end="url(#cn0130_127_p_mblue)"/>
+  <text x="208" y="130" fill="#1f5fa8">asking for an address</text>
+  <text x="172" y="130" text-anchor="end" fill="#1f5fa8">the DHCP server's answer</text>
+  <text x="172" y="143" text-anchor="end" fill="#1f5fa8">address and way out</text>
+  <text x="208" y="172" fill="#333333">cable 5</text>
+
+  <use href="#cn0130_127_p_GEAR-06_switch" transform="translate(40,190) scale(1.1538)"/>
+  <text x="100" y="252" text-anchor="middle" font-weight="bold" fill="#222222">switch</text>
+
+  <line x1="281" y1="330" x2="281" y2="234" stroke="#1f5fa8" stroke-width="2" marker-end="url(#cn0130_127_p_mblue)"/>
+  <line x1="299" y1="234" x2="299" y2="330" stroke="#1f5fa8" stroke-width="2" marker-end="url(#cn0130_127_p_mblue)"/>
+  <text x="272" y="286" text-anchor="end" fill="#333333">cable 4</text>
+
+  <use href="#cn0130_127_p_ACCESS-POINT_proposed" transform="translate(270,332)"/>
+  <text x="290" y="390" text-anchor="middle" font-weight="bold" fill="#222222">access point</text>
+  <text x="372" y="408" text-anchor="end" fill="#222222">NyamiramboTraders-Office</text>
+
+  <use href="#cn0130_127_p_PHONE_proposed" transform="translate(60,336)"/>
+  <text x="74" y="390" text-anchor="middle" font-weight="bold" fill="#222222">phone</text>
+
+  <line x1="94" y1="346" x2="268" y2="346" stroke="#c05621" stroke-width="2" stroke-dasharray="5,4" marker-start="url(#cn0130_127_p_morange)" marker-end="url(#cn0130_127_p_morange)"/>
+  <text x="181" y="318" text-anchor="middle" fill="#c05621"><tspan x="181" dy="0">joining: network name</tspan><tspan x="181" dy="12">and password</tspan></text>
+
+  <line x1="94" y1="360" x2="268" y2="360" stroke="#1f5fa8" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#cn0130_127_p_mblue)"/>
+  <line x1="268" y1="370" x2="94" y2="370" stroke="#1f5fa8" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#cn0130_127_p_mblue)"/>
+  <text x="181" y="386" text-anchor="middle" fill="#666666">Wi-Fi</text>
+</svg>
+</script>
+
+<script type="image/svg+xml" data-svg="cn0130_127__wide">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 420" font-family="Arial, Helvetica, sans-serif" font-size="11">
+  <title>office network</title>
+  <defs>
+    <g id="cn0130_127_w_GEAR-06_switch" data-registry="GEAR-06">
+      <rect x="1" y="1" width="258" height="34" rx="6" fill="#2b6cb0" stroke="#1a4a80" stroke-width="2"/>
+      <g stroke="#ffffff" stroke-width="2" stroke-linecap="round">
+        <line x1="41" y1="26" x2="59" y2="26"/>
+        <line x1="101" y1="26" x2="119" y2="26"/>
+        <line x1="161" y1="26" x2="179" y2="26"/>
+        <line x1="221" y1="26" x2="239" y2="26"/>
+      </g>
+      <g fill="#ffffff">
+        <polygon points="34,26 42,22 42,30"/>
+        <polygon points="66,26 58,22 58,30"/>
+        <polygon points="94,26 102,22 102,30"/>
+        <polygon points="126,26 118,22 118,30"/>
+        <polygon points="154,26 162,22 162,30"/>
+        <polygon points="186,26 178,22 178,30"/>
+        <polygon points="214,26 222,22 222,30"/>
+        <polygon points="246,26 238,22 238,30"/>
+      </g>
+    </g>
+    <g id="cn0130_127_w_ACCESS-POINT_proposed" data-registry="none">
+      <rect x="2" y="4" width="36" height="32" rx="6" fill="#2f855a" stroke="#1d5a3b" stroke-width="2"/>
+      <g fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round">
+        <path d="M14.3,22.3 A8,8 0 0 1 25.7,22.3"/>
+        <path d="M10.1,18.1 A14,14 0 0 1 29.9,18.1"/>
+      </g>
+      <circle cx="20" cy="28" r="2.2" fill="#ffffff"/>
+    </g>
+    <g id="cn0130_127_w_PHONE_proposed" data-registry="none">
+      <rect x="2" y="2" width="24" height="36" rx="4" fill="#dbe9f7" stroke="#333333" stroke-width="2"/>
+      <rect x="6" y="7" width="16" height="22" fill="#ffffff" stroke="#8aa4c0" stroke-width="1"/>
+      <circle cx="14" cy="33.5" r="2" fill="#333333"/>
+    </g>
+    <g id="cn0130_127_w_DHCP-SERVER_proposed" data-registry="none">
+      <rect x="2" y="2" width="52" height="52" rx="8" fill="#faf5ff" stroke="#6b46c1" stroke-width="2" stroke-dasharray="5,3"/>
+      <rect x="12" y="11" width="32" height="14" rx="2" fill="#6b46c1"/>
+      <rect x="12" y="31" width="32" height="14" rx="2" fill="#6b46c1"/>
+      <circle cx="18" cy="18" r="2" fill="#ffffff"/>
+      <circle cx="18" cy="38" r="2" fill="#ffffff"/>
+      <line x1="25" y1="18" x2="38" y2="18" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+      <line x1="25" y1="38" x2="38" y2="38" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    <marker id="cn0130_127_w_mblue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/>
+    </marker>
+    <marker id="cn0130_127_w_morange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c05621"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="380" height="420" fill="#ffffff"/>
+
+  <line x1="190" y1="98" x2="190" y2="190" stroke="#666666" stroke-width="4"/>
+  <line x1="290" y1="232" x2="290" y2="332" stroke="#666666" stroke-width="4"/>
+
+  <use href="#cn0130_127_w_DHCP-SERVER_proposed" transform="translate(162,16)"/>
+  <text x="190" y="90" text-anchor="middle" font-weight="bold" fill="#222222">DHCP server</text>
+
+  <line x1="199" y1="188" x2="199" y2="100" stroke="#1f5fa8" stroke-width="2" marker-end="url(#cn0130_127_w_mblue)"/>
+  <line x1="181" y1="100" x2="181" y2="188" stroke="#1f5fa8" stroke-width="2" marker-end="url(#cn0130_127_w_mblue)"/>
+  <text x="208" y="130" fill="#1f5fa8">asking for an address</text>
+  <text x="172" y="130" text-anchor="end" fill="#1f5fa8">the DHCP server's answer</text>
+  <text x="172" y="143" text-anchor="end" fill="#1f5fa8">address and way out</text>
+  <text x="208" y="172" fill="#333333">cable 5</text>
+
+  <use href="#cn0130_127_w_GEAR-06_switch" transform="translate(40,190) scale(1.1538)"/>
+  <text x="100" y="252" text-anchor="middle" font-weight="bold" fill="#222222">switch</text>
+
+  <line x1="281" y1="330" x2="281" y2="234" stroke="#1f5fa8" stroke-width="2" marker-end="url(#cn0130_127_w_mblue)"/>
+  <line x1="299" y1="234" x2="299" y2="330" stroke="#1f5fa8" stroke-width="2" marker-end="url(#cn0130_127_w_mblue)"/>
+  <text x="272" y="286" text-anchor="end" fill="#333333">cable 4</text>
+
+  <use href="#cn0130_127_w_ACCESS-POINT_proposed" transform="translate(270,332)"/>
+  <text x="290" y="390" text-anchor="middle" font-weight="bold" fill="#222222">access point</text>
+  <text x="372" y="408" text-anchor="end" fill="#222222">NyamiramboTraders-Office</text>
+
+  <use href="#cn0130_127_w_PHONE_proposed" transform="translate(60,336)"/>
+  <text x="74" y="390" text-anchor="middle" font-weight="bold" fill="#222222">phone</text>
+
+  <line x1="94" y1="346" x2="268" y2="346" stroke="#c05621" stroke-width="2" stroke-dasharray="5,4" marker-start="url(#cn0130_127_w_morange)" marker-end="url(#cn0130_127_w_morange)"/>
+  <text x="181" y="318" text-anchor="middle" fill="#c05621"><tspan x="181" dy="0">joining: network name</tspan><tspan x="181" dy="12">and password</tspan></text>
+
+  <line x1="94" y1="360" x2="268" y2="360" stroke="#1f5fa8" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#cn0130_127_w_mblue)"/>
+  <line x1="268" y1="370" x2="94" y2="370" stroke="#1f5fa8" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#cn0130_127_w_mblue)"/>
+  <text x="181" y="386" text-anchor="middle" fill="#666666">Wi-Fi</text>
+</svg>
+</script>
+
+<script type="image/svg+xml" data-svg="cn0131_127__phone">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 420" font-family="Arial, Helvetica, sans-serif" font-size="11">
+  <title>office network</title>
+  <defs>
+    <g id="cn0131_127_p_GEAR-06_switch" data-registry="GEAR-06">
+      <rect x="1" y="1" width="258" height="34" rx="6" fill="#2b6cb0" stroke="#1a4a80" stroke-width="2"/>
+      <g stroke="#ffffff" stroke-width="2" stroke-linecap="round">
+        <line x1="41" y1="26" x2="59" y2="26"/>
+        <line x1="101" y1="26" x2="119" y2="26"/>
+        <line x1="161" y1="26" x2="179" y2="26"/>
+        <line x1="221" y1="26" x2="239" y2="26"/>
+      </g>
+      <g fill="#ffffff">
+        <polygon points="34,26 42,22 42,30"/>
+        <polygon points="66,26 58,22 58,30"/>
+        <polygon points="94,26 102,22 102,30"/>
+        <polygon points="126,26 118,22 118,30"/>
+        <polygon points="154,26 162,22 162,30"/>
+        <polygon points="186,26 178,22 178,30"/>
+        <polygon points="214,26 222,22 222,30"/>
+        <polygon points="246,26 238,22 238,30"/>
+      </g>
+    </g>
+    <g id="cn0131_127_p_ACCESS-POINT_proposed" data-registry="none">
+      <rect x="2" y="4" width="36" height="32" rx="6" fill="#2f855a" stroke="#1d5a3b" stroke-width="2"/>
+      <g fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round">
+        <path d="M14.3,22.3 A8,8 0 0 1 25.7,22.3"/>
+        <path d="M10.1,18.1 A14,14 0 0 1 29.9,18.1"/>
+      </g>
+      <circle cx="20" cy="28" r="2.2" fill="#ffffff"/>
+    </g>
+    <g id="cn0131_127_p_PHONE_proposed" data-registry="none">
+      <rect x="2" y="2" width="24" height="36" rx="4" fill="#dbe9f7" stroke="#333333" stroke-width="2"/>
+      <rect x="6" y="7" width="16" height="22" fill="#ffffff" stroke="#8aa4c0" stroke-width="1"/>
+      <circle cx="14" cy="33.5" r="2" fill="#333333"/>
+    </g>
+  </defs>
+
+  <rect x="0" y="0" width="380" height="420" fill="#ffffff"/>
+
+  <use href="#cn0131_127_p_GEAR-06_switch" transform="translate(40,20) scale(1.1538)"/>
+  <text x="190" y="76" text-anchor="middle" font-weight="bold" fill="#222222">switch</text>
+
+  <line x1="70" y1="62" x2="70" y2="132" stroke="#666666" stroke-width="4"/>
+  <text x="80" y="102" fill="#333333">cable 4</text>
+
+  <use href="#cn0131_127_p_ACCESS-POINT_proposed" transform="translate(50,132)"/>
+  <text x="70" y="200" text-anchor="middle" font-weight="bold" fill="#222222">access point</text>
+
+  <use href="#cn0131_127_p_PHONE_proposed" transform="translate(170,132)"/>
+  <text x="184" y="124" text-anchor="middle" font-weight="bold" fill="#222222">phone</text>
+  <text x="184" y="108" text-anchor="middle" fill="#333333">next to the access point</text>
+
+  <line x1="94" y1="152" x2="168" y2="152" stroke="#1f5fa8" stroke-width="3" stroke-dasharray="6,3"/>
+  <text x="131" y="144" text-anchor="middle" fill="#1f5fa8">stronger signal</text>
+  <text x="131" y="170" text-anchor="middle" fill="#666666">Wi-Fi</text>
+
+  <line x1="98" y1="172" x2="326" y2="350" stroke="#1f5fa8" stroke-width="1" stroke-dasharray="2,7" opacity="0.4"/>
+  <text x="140" y="240" text-anchor="middle" fill="#666666">Wi-Fi</text>
+  <text x="225" y="240" fill="#1f5fa8">weaker signal: slower</text>
+
+  <use href="#cn0131_127_p_PHONE_proposed" transform="translate(330,330)"/>
+  <text x="344" y="384" text-anchor="middle" font-weight="bold" fill="#222222">phone</text>
+  <text x="370" y="402" text-anchor="end" fill="#333333">at the back of the shop</text>
+</svg>
+</script>
+
+<script type="image/svg+xml" data-svg="cn0131_127__wide">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 420" font-family="Arial, Helvetica, sans-serif" font-size="11">
+  <title>office network</title>
+  <defs>
+    <g id="cn0131_127_w_GEAR-06_switch" data-registry="GEAR-06">
+      <rect x="1" y="1" width="258" height="34" rx="6" fill="#2b6cb0" stroke="#1a4a80" stroke-width="2"/>
+      <g stroke="#ffffff" stroke-width="2" stroke-linecap="round">
+        <line x1="41" y1="26" x2="59" y2="26"/>
+        <line x1="101" y1="26" x2="119" y2="26"/>
+        <line x1="161" y1="26" x2="179" y2="26"/>
+        <line x1="221" y1="26" x2="239" y2="26"/>
+      </g>
+      <g fill="#ffffff">
+        <polygon points="34,26 42,22 42,30"/>
+        <polygon points="66,26 58,22 58,30"/>
+        <polygon points="94,26 102,22 102,30"/>
+        <polygon points="126,26 118,22 118,30"/>
+        <polygon points="154,26 162,22 162,30"/>
+        <polygon points="186,26 178,22 178,30"/>
+        <polygon points="214,26 222,22 222,30"/>
+        <polygon points="246,26 238,22 238,30"/>
+      </g>
+    </g>
+    <g id="cn0131_127_w_ACCESS-POINT_proposed" data-registry="none">
+      <rect x="2" y="4" width="36" height="32" rx="6" fill="#2f855a" stroke="#1d5a3b" stroke-width="2"/>
+      <g fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round">
+        <path d="M14.3,22.3 A8,8 0 0 1 25.7,22.3"/>
+        <path d="M10.1,18.1 A14,14 0 0 1 29.9,18.1"/>
+      </g>
+      <circle cx="20" cy="28" r="2.2" fill="#ffffff"/>
+    </g>
+    <g id="cn0131_127_w_PHONE_proposed" data-registry="none">
+      <rect x="2" y="2" width="24" height="36" rx="4" fill="#dbe9f7" stroke="#333333" stroke-width="2"/>
+      <rect x="6" y="7" width="16" height="22" fill="#ffffff" stroke="#8aa4c0" stroke-width="1"/>
+      <circle cx="14" cy="33.5" r="2" fill="#333333"/>
+    </g>
+  </defs>
+
+  <rect x="0" y="0" width="380" height="420" fill="#ffffff"/>
+
+  <use href="#cn0131_127_w_GEAR-06_switch" transform="translate(40,20) scale(1.1538)"/>
+  <text x="190" y="76" text-anchor="middle" font-weight="bold" fill="#222222">switch</text>
+
+  <line x1="70" y1="62" x2="70" y2="132" stroke="#666666" stroke-width="4"/>
+  <text x="80" y="102" fill="#333333">cable 4</text>
+
+  <use href="#cn0131_127_w_ACCESS-POINT_proposed" transform="translate(50,132)"/>
+  <text x="70" y="200" text-anchor="middle" font-weight="bold" fill="#222222">access point</text>
+
+  <use href="#cn0131_127_w_PHONE_proposed" transform="translate(170,132)"/>
+  <text x="184" y="124" text-anchor="middle" font-weight="bold" fill="#222222">phone</text>
+  <text x="184" y="108" text-anchor="middle" fill="#333333">next to the access point</text>
+
+  <line x1="94" y1="152" x2="168" y2="152" stroke="#1f5fa8" stroke-width="3" stroke-dasharray="6,3"/>
+  <text x="131" y="144" text-anchor="middle" fill="#1f5fa8">stronger signal</text>
+  <text x="131" y="170" text-anchor="middle" fill="#666666">Wi-Fi</text>
+
+  <line x1="98" y1="172" x2="326" y2="350" stroke="#1f5fa8" stroke-width="1" stroke-dasharray="2,7" opacity="0.4"/>
+  <text x="140" y="240" text-anchor="middle" fill="#666666">Wi-Fi</text>
+  <text x="225" y="240" fill="#1f5fa8">weaker signal: slower</text>
+
+  <use href="#cn0131_127_w_PHONE_proposed" transform="translate(330,330)"/>
+  <text x="344" y="384" text-anchor="middle" font-weight="bold" fill="#222222">phone</text>
+  <text x="370" y="402" text-anchor="end" fill="#333333">at the back of the shop</text>
+</svg>
+</script>
+
+<script type="image/svg+xml" data-svg="cn0132_127__phone">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 420" font-family="Arial, Helvetica, sans-serif" font-size="11">
+  <title>office network</title>
+  <defs>
+    <g id="cn0132_127_p_GEAR-06_switch" data-registry="GEAR-06">
+      <rect x="1" y="1" width="258" height="34" rx="6" fill="#2b6cb0" stroke="#1a4a80" stroke-width="2"/>
+      <g stroke="#ffffff" stroke-width="2" stroke-linecap="round">
+        <line x1="41" y1="26" x2="59" y2="26"/>
+        <line x1="101" y1="26" x2="119" y2="26"/>
+        <line x1="161" y1="26" x2="179" y2="26"/>
+        <line x1="221" y1="26" x2="239" y2="26"/>
+      </g>
+      <g fill="#ffffff">
+        <polygon points="34,26 42,22 42,30"/>
+        <polygon points="66,26 58,22 58,30"/>
+        <polygon points="94,26 102,22 102,30"/>
+        <polygon points="126,26 118,22 118,30"/>
+        <polygon points="154,26 162,22 162,30"/>
+        <polygon points="186,26 178,22 178,30"/>
+        <polygon points="214,26 222,22 222,30"/>
+        <polygon points="246,26 238,22 238,30"/>
+      </g>
+    </g>
+    <g id="cn0132_127_p_ACCESS-POINT_proposed" data-registry="none">
+      <rect x="2" y="4" width="36" height="32" rx="6" fill="#2f855a" stroke="#1d5a3b" stroke-width="2"/>
+      <g fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round">
+        <path d="M14.3,22.3 A8,8 0 0 1 25.7,22.3"/>
+        <path d="M10.1,18.1 A14,14 0 0 1 29.9,18.1"/>
+      </g>
+      <circle cx="20" cy="28" r="2.2" fill="#ffffff"/>
+    </g>
+    <g id="cn0132_127_p_PHONE_proposed" data-registry="none">
+      <rect x="2" y="2" width="24" height="36" rx="4" fill="#dbe9f7" stroke="#333333" stroke-width="2"/>
+      <rect x="6" y="7" width="16" height="22" fill="#ffffff" stroke="#8aa4c0" stroke-width="1"/>
+      <circle cx="14" cy="33.5" r="2" fill="#333333"/>
+    </g>
+  </defs>
+
+  <rect x="0" y="0" width="380" height="420" fill="#ffffff"/>
+
+  <rect x="10" y="125" width="360" height="285" rx="40" fill="#e8f1fa" stroke="#1f5fa8" stroke-width="2.5" stroke-dasharray="10,5"/>
+
+  <use href="#cn0132_127_p_GEAR-06_switch" transform="translate(40,20) scale(1.1538)"/>
+  <text x="40" y="76" font-weight="bold" fill="#222222">switch</text>
+
+  <line x1="190" y1="62" x2="190" y2="144" stroke="#666666" stroke-width="4"/>
+  <text x="200" y="104" fill="#333333">cable 4</text>
+
+  <use href="#cn0132_127_p_ACCESS-POINT_proposed" transform="translate(170,140)"/>
+  <text x="164" y="164" text-anchor="end" font-weight="bold" fill="#222222">access point</text>
+
+  <line x1="190" y1="176" x2="60" y2="260" stroke="#1f5fa8" stroke-width="3" stroke-dasharray="6,3"/>
+  <line x1="190" y1="176" x2="190" y2="260" stroke="#1f5fa8" stroke-width="3" stroke-dasharray="6,3"/>
+  <line x1="190" y1="176" x2="320" y2="260" stroke="#1f5fa8" stroke-width="3" stroke-dasharray="6,3"/>
+  <text x="198" y="222" fill="#1f5fa8">Wi-Fi</text>
+
+  <use href="#cn0132_127_p_PHONE_proposed" transform="translate(46,260)"/>
+  <text x="60" y="314" text-anchor="middle" font-weight="bold" fill="#222222">phone</text>
+  <use href="#cn0132_127_p_PHONE_proposed" transform="translate(176,260)"/>
+  <text x="190" y="314" text-anchor="middle" font-weight="bold" fill="#222222">phone</text>
+  <use href="#cn0132_127_p_PHONE_proposed" transform="translate(306,260)"/>
+  <text x="320" y="314" text-anchor="middle" font-weight="bold" fill="#222222">phone</text>
+
+  <text x="190" y="354" text-anchor="middle" font-weight="bold" fill="#1f5fa8">the shared air</text>
+  <text x="190" y="372" text-anchor="middle" fill="#333333"><tspan x="190" dy="0">devices in range of each other</tspan><tspan x="190" dy="15">on the same stretch of air share it</tspan></text>
+</svg>
+</script>
+
+<script type="image/svg+xml" data-svg="cn0132_127__wide">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 420" font-family="Arial, Helvetica, sans-serif" font-size="11">
+  <title>office network</title>
+  <defs>
+    <g id="cn0132_127_w_GEAR-06_switch" data-registry="GEAR-06">
+      <rect x="1" y="1" width="258" height="34" rx="6" fill="#2b6cb0" stroke="#1a4a80" stroke-width="2"/>
+      <g stroke="#ffffff" stroke-width="2" stroke-linecap="round">
+        <line x1="41" y1="26" x2="59" y2="26"/>
+        <line x1="101" y1="26" x2="119" y2="26"/>
+        <line x1="161" y1="26" x2="179" y2="26"/>
+        <line x1="221" y1="26" x2="239" y2="26"/>
+      </g>
+      <g fill="#ffffff">
+        <polygon points="34,26 42,22 42,30"/>
+        <polygon points="66,26 58,22 58,30"/>
+        <polygon points="94,26 102,22 102,30"/>
+        <polygon points="126,26 118,22 118,30"/>
+        <polygon points="154,26 162,22 162,30"/>
+        <polygon points="186,26 178,22 178,30"/>
+        <polygon points="214,26 222,22 222,30"/>
+        <polygon points="246,26 238,22 238,30"/>
+      </g>
+    </g>
+    <g id="cn0132_127_w_ACCESS-POINT_proposed" data-registry="none">
+      <rect x="2" y="4" width="36" height="32" rx="6" fill="#2f855a" stroke="#1d5a3b" stroke-width="2"/>
+      <g fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round">
+        <path d="M14.3,22.3 A8,8 0 0 1 25.7,22.3"/>
+        <path d="M10.1,18.1 A14,14 0 0 1 29.9,18.1"/>
+      </g>
+      <circle cx="20" cy="28" r="2.2" fill="#ffffff"/>
+    </g>
+    <g id="cn0132_127_w_PHONE_proposed" data-registry="none">
+      <rect x="2" y="2" width="24" height="36" rx="4" fill="#dbe9f7" stroke="#333333" stroke-width="2"/>
+      <rect x="6" y="7" width="16" height="22" fill="#ffffff" stroke="#8aa4c0" stroke-width="1"/>
+      <circle cx="14" cy="33.5" r="2" fill="#333333"/>
+    </g>
+  </defs>
+
+  <rect x="0" y="0" width="380" height="420" fill="#ffffff"/>
+
+  <rect x="10" y="125" width="360" height="285" rx="40" fill="#e8f1fa" stroke="#1f5fa8" stroke-width="2.5" stroke-dasharray="10,5"/>
+
+  <use href="#cn0132_127_w_GEAR-06_switch" transform="translate(40,20) scale(1.1538)"/>
+  <text x="40" y="76" font-weight="bold" fill="#222222">switch</text>
+
+  <line x1="190" y1="62" x2="190" y2="144" stroke="#666666" stroke-width="4"/>
+  <text x="200" y="104" fill="#333333">cable 4</text>
+
+  <use href="#cn0132_127_w_ACCESS-POINT_proposed" transform="translate(170,140)"/>
+  <text x="164" y="164" text-anchor="end" font-weight="bold" fill="#222222">access point</text>
+
+  <line x1="190" y1="176" x2="60" y2="260" stroke="#1f5fa8" stroke-width="3" stroke-dasharray="6,3"/>
+  <line x1="190" y1="176" x2="190" y2="260" stroke="#1f5fa8" stroke-width="3" stroke-dasharray="6,3"/>
+  <line x1="190" y1="176" x2="320" y2="260" stroke="#1f5fa8" stroke-width="3" stroke-dasharray="6,3"/>
+  <text x="198" y="222" fill="#1f5fa8">Wi-Fi</text>
+
+  <use href="#cn0132_127_w_PHONE_proposed" transform="translate(46,260)"/>
+  <text x="60" y="314" text-anchor="middle" font-weight="bold" fill="#222222">phone</text>
+  <use href="#cn0132_127_w_PHONE_proposed" transform="translate(176,260)"/>
+  <text x="190" y="314" text-anchor="middle" font-weight="bold" fill="#222222">phone</text>
+  <use href="#cn0132_127_w_PHONE_proposed" transform="translate(306,260)"/>
+  <text x="320" y="314" text-anchor="middle" font-weight="bold" fill="#222222">phone</text>
+
+  <text x="190" y="354" text-anchor="middle" font-weight="bold" fill="#1f5fa8">the shared air</text>
+  <text x="190" y="372" text-anchor="middle" fill="#333333"><tspan x="190" dy="0">devices in range of each other</tspan><tspan x="190" dy="15">on the same stretch of air share it</tspan></text>
+</svg>
+</script>
+
+<script>
+(function(){
+  var ORDER = ["cn-0001", "cn-0003", "cn-0127", "cn-0128", "cn-0129", "cn-0115", "cn-0130", "cn-0131", "cn-0132"];
+  function cardLabel(id){ return "Lesson " + (ORDER.indexOf(id)+1) + " of 9"; }
+  var KEY = "zubaRide129";
+  var REFLABEL = {"cn-0003": "Two kinds of address (MAC vs IP)", "cn-0001": "How data finds a destination", "cn-0127": "How a device finds the MAC address that goes with an IP address on its own network (ARP)", "cn-0128": "When many devices plug into one box, how it knows which cable leads to which device (the switch)", "cn-0129": "Is the box that gives you Wi-Fi a router? What an access point does, and what else a home Wi-Fi box does", "cn-0115": "Who hands out the address: the DHCP server", "cn-0131": "Why Wi-Fi gets slower far from the access point (reading signal strength)"};
+
+  // THE LOG STARTS EMPTY, EVERY RIDE (Ride Harness, "The log starts EMPTY"): nothing is read from
+  // storage into a field, every key this sheet or an earlier ride sheet could have written is deleted
+  // on load, and the emptiness is then asserted positively on the page.
+  var scrubbed = 0, storageOk = false;
+  try {
+    var kill = [];
+    for (var i = 0; i < localStorage.length; i++){
+      var k = localStorage.key(i);
+      if (k && (k.indexOf(KEY) === 0 || k.indexOf("zubaRide") === 0)) kill.push(k);
+    }
+    kill.forEach(function(k){ localStorage.removeItem(k); });
+    scrubbed = kill.length;
+    storageOk = true;
+  } catch(e){ storageOk = false; }
+
+  var T0 = Date.now();
+  var timing = {};
+  function rel(){ return Date.now() - T0; }
+  function clk(ms){ if(ms == null) return "—"; var s = Math.max(0, Math.round(ms/1000)); return Math.floor(s/60) + ":" + ("0"+(s%60)).slice(-2); }
+
+  function esc(s){ return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+  function fmt(s){
+    s = esc(s);
+    s = s.replace(/`([^`]+)`/g, function(_,x){ return "<code>"+x+"</code>"; });
+    s = s.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+    s = s.replace(/\*([^*]+)\*/g, "<em>$1</em>");
+    s = s.replace(/\[([^\]]+)\]\(#[^)]*\)/g, '<span class="term">$1</span>');
+    s = s.replace(/\s?\{\{REFRESH:(cn-\d{4})\}\}/g, function(_, n){ return ' <a class="refresh" href="#card-'+n+'">Refresher: “'+esc(REFLABEL[n]||n)+'”</a>'; });
+    return s;
+  }
+  function svg(key){
+    var el = document.querySelector('script[data-svg="'+key+'"]');
+    return el ? el.textContent : "";
+  }
+  function renderMd(md){
+    var blocks = md.trim().split(/\n\n+/), out = "";
+    blocks.forEach(function(b){
+      b = b.replace(/^\n+|\n+$/g,"");
+      if(!b) return;
+      var m = b.match(/^\{\{DIAGRAM:([\w-]+)\}\}$/);
+      if(m){ out += '<figure class="diagram"><div class="fig-phone">'+svg(m[1]+"__phone")+'</div><div class="fig-wide">'+svg(m[1]+"__wide")+'</div></figure>'; return; }
+      if(b === "---"){ out += "<hr>"; return; }
+      if(b.charAt(0) === "|"){
+        var trs = b.split("\n").filter(function(l){ return l.trim() !== ""; }).map(function(l){
+          return l.trim().replace(/^\|/, "").replace(/\|$/, "").split("|").map(function(x){ return x.trim(); }); });
+        var th = trs[0], body = trs.slice(2);
+        out += '<div class="tablewrap"><table class="md"><thead><tr>' + th.map(function(x){ return "<th>"+fmt(x)+"</th>"; }).join("") + "</tr></thead><tbody>"
+          + body.map(function(r){ return "<tr>" + r.map(function(x){ return "<td>"+fmt(x)+"</td>"; }).join("") + "</tr>"; }).join("") + "</tbody></table></div>";
+        return;
+      }
+      if(b.split("\n").every(function(l){ return /^- /.test(l); })){
+        out += '<ul class="md">' + b.split("\n").map(function(l){ return "<li>"+fmt(l.replace(/^- /, ""))+"</li>"; }).join("") + "</ul>";
+        return;
+      }
+      if(/^#{2,4}\s/.test(b)){ out += "<h4>"+fmt(b.replace(/^#{2,4}\s+/,""))+"</h4>"; return; }
+      if(b.charAt(0) === ">"){
+        var inner = b.split("\n").map(function(l){ return l.replace(/^>\s?/,""); }).join(" ");
+        out += "<blockquote>"+fmt(inner)+"</blockquote>"; return;
+      }
+      out += "<p>"+fmt(b.split("\n").join(" "))+"</p>";
+    });
+    return out;
+  }
+
+  var NAMES = {};
+  function fields(){ return document.querySelectorAll("[data-node]"); }
+  function updateCount(){
+    var n = 0;
+    fields().forEach(function(ta){ if(ta.value.trim() !== "") n++; });
+    var el = document.getElementById("cN"); if(el) el.textContent = n;
+  }
+
+  // No storage read and no storage write: a field is created empty and holds only what is typed into
+  // it, for this page life only. (Cost, stated: an answer does not survive a refresh.)
+  function cbox(node, pos, hint, short){
+    var wrap = document.createElement("div"); wrap.className = "cbox";
+    var lab = document.createElement("label"); lab.textContent = hint;
+    var ta = document.createElement(short ? "input" : "textarea");
+    if(short){ ta.type = "text"; ta.autocomplete = "off"; } else { ta.setAttribute("rows", "2"); ta.placeholder = "…"; }
+    ta.setAttribute("data-node", node); ta.setAttribute("data-pos", pos);
+    ta.value = "";
+    ta.addEventListener("input", function(){
+      if(ta.value.trim() !== "") ta.classList.add("has"); else ta.classList.remove("has");
+      updateCount();
+    });
+    var tid = "id_" + node + "_" + pos.replace(/[^a-z0-9]+/gi, "_");
+    ta.id = tid; lab.setAttribute("for", tid);
+    wrap.appendChild(lab); wrap.appendChild(ta);
+    return wrap;
+  }
+
+  var cards = [];
+  var activeId = null, activeSince = null;
+  function currentCard(){
+    var vh = window.innerHeight || document.documentElement.clientHeight, best = null, bestVis = 0;
+    cards.forEach(function(c){
+      var r = c.el.getBoundingClientRect();
+      var vis = Math.max(0, Math.min(r.bottom, vh) - Math.max(r.top, 0));
+      if(vis > bestVis){ bestVis = vis; best = c.id; }
+    });
+    return bestVis > 0 ? best : null;
+  }
+  function tick(){
+    var cur = currentCard(), now = Date.now();
+    if(cur !== activeId){
+      if(activeId && activeSince !== null){ var p = timing[activeId]; if(p){ p.active += now - activeSince; p.lastOut = rel(); } }
+      activeId = cur; activeSince = (cur ? now : null);
+      if(cur){ var e = timing[cur]; if(e){ if(e.firstIn === null) e.firstIn = rel(); e.lastOut = rel(); } }
+    } else if(activeId){ var e2 = timing[activeId]; if(e2) e2.lastOut = rel(); }
+  }
+
+  var main = document.getElementById("ride");
+
+  // Rider, date, device, connection — the harness's log header.
+  var who = document.createElement("section"); who.className = "lesson";
+  who.innerHTML = '<div class="idx">Before you start</div><div class="core"><p>Four short fields to start.</p></div>';
+  var g = document.createElement("div"); g.className = "rgrid";
+  g.appendChild(cbox("rider", "rider", "Rider", true));
+  g.appendChild(cbox("rider", "date", "Date", true));
+  g.appendChild(cbox("rider", "device", "Device (phone / laptop)", true));
+  g.appendChild(cbox("rider", "connection", "Connection (good / patchy)", true));
+  who.appendChild(g);
+  main.appendChild(who);
+  NAMES["rider"] = "Before you start";
+
+  ORDER.forEach(function(id){
+    var coreEl = document.querySelector('script[data-core="'+id+'"]');
+    if(!coreEl) return;
+    var title = coreEl.getAttribute("data-title");
+    NAMES[id] = title;
+    var sec = document.createElement("section"); sec.className = "lesson"; sec.id = "card-" + id;
+    timing[id] = { firstIn:null, lastOut:null, active:0 };
+    sec.innerHTML = '<div class="idx">' + cardLabel(id) + '</div>'
+      + '<h2>'+esc(title)+'</h2>'
+      + '<div class="core">'+renderMd(coreEl.textContent)+'</div>';
+    sec.appendChild(cbox(id, "reads at pace or snags", "Reads at pace, or snags on phrasing? Where?"));
+    sec.appendChild(cbox(id, "scaffolding missing", "Scaffolding missing — what a learner would need that isn't here"));
+    main.appendChild(sec);
+    cards.push({ id:id, el:sec });
+    // CLOSING-QUESTION CARD: the lesson file's own `## Closing question` section, byte for byte (Ride Harness v2.9).
+    var qEl = document.querySelector('script[data-close="'+id+'"]');
+    if(qEl){
+      var cq = document.createElement("section"); cq.className = "lesson";
+      cq.innerHTML = '<div class="idx">Closing question · ' + cardLabel(id) + '</div>'
+        + '<div class="core">'+renderMd(qEl.textContent)+'</div>';
+      cq.appendChild(cbox(id, "closing question", "Your answer, from memory, not from the text"));
+      // THE HOOK (Ride Harness v2.13, Render Surface Spec v0.4): the forward_target's hook_question(s), from the graph.
+      var hEl = document.querySelector('script[data-hook="'+id+'"]');
+      if(hEl){
+        var hk = document.createElement("div"); hk.className = "core hook";
+        hk.innerHTML = '<p class="lead">Next:</p>' + hEl.textContent.trim().split("\n").map(function(l){ return '<p class="q">'+fmt(l)+'</p>'; }).join("");
+        cq.appendChild(hk);
+      }
+      main.appendChild(cq);
+    }
+    // THE ARC CONNECTORS (Ride Harness v2.13): adjacent cards only; the frame leads with the later lesson's hook_question.
+    var arcEl = document.querySelector('script[data-connector-after="'+id+'"]');
+    if(arcEl){
+      var arc = document.createElement("section"); arc.className = "lesson";
+      var sk = "seam-" + arcEl.getAttribute("data-arc-from");
+      arc.innerHTML = '<div class="idx">Between lesson ' + (ORDER.indexOf(id)+1) + ' and lesson ' + (ORDER.indexOf(id)+2) + '</div>'
+        + '<div class="core">'+renderMd(arcEl.textContent)+'</div>';
+      arc.appendChild(cbox(sk, "the seam", "Does this join the two lessons for you, or is something missing?"));
+      main.appendChild(arc);
+      NAMES[sk] = "Between lessons " + (ORDER.indexOf(id)+1) + " and " + (ORDER.indexOf(id)+2) + " (the seam)";
+    }
+  });
+
+  // ACROSS THE SITTING: the harness's cap questions (multi-node ride), with their own capture.
+  var sit = document.createElement("section"); sit.className = "lesson";
+  sit.innerHTML = '<div class="idx">Across the sitting</div>'
+    + '<div class="core"><p>Answer these before checking how long the lesson was meant to be.</p></div>';
+  sit.appendChild(cbox("sitting", "natural place or mid-thought", "Did it stop at a natural place, or mid-thought?"));
+  sit.appendChild(cbox("sitting", "would a learner keep going", "Would a learner have kept going? For how much longer?"));
+  sit.appendChild(cbox("sitting", "what a ride sheet needs", "What would a ride sheet for this need to contain?"));
+  sit.appendChild(cbox("sitting", "anything to cut", "Anything you'd cut?"));
+  main.appendChild(sit);
+  NAMES["sitting"] = "Across the sitting";
+
+  // AFTER: the successor sets of the chains' last lessons, named at the end (labels from the corpus graph).
+  var nx = document.createElement("section"); nx.className = "lesson";
+  nx.innerHTML = '<div class="idx">What comes next</div>'
+    + '<div class="core next"><p>After these lessons, a learner can go on to any of these:</p><ul>'
+    + '<li>The two Wi-Fi bands (2.4 GHz and 5 GHz): which reaches further and which is less crowded</li>'
+    + '</ul></div>';
+  nx.appendChild(cbox("next", "what comes next", "Does any of these feel like the obvious next step — or is something missing?"));
+  main.appendChild(nx);
+  NAMES["next"] = "What comes next";
+
+  (function assertFresh(){
+    var tas = fields();
+    var total = tas.length, nonEmpty = 0;
+    tas.forEach(function(ta){ if(ta.value !== "") nonEmpty++; });
+    var msg = document.getElementById("freshMsg");
+    var note = document.getElementById("freshNote");
+    if(!msg) return;
+    if(nonEmpty === 0){
+      var storageLine = storageOk
+        ? (scrubbed + " stored answer key(s) from earlier rides deleted")
+        : "browser storage is unavailable here, so nothing could have been stored or restored";
+      msg.textContent = total + " of " + total + " fields confirmed EMPTY on load"
+        + " · " + storageLine
+        + " · nothing on this sheet is carried over from a previous ride.";
+    } else {
+      msg.textContent = "STOP — " + nonEmpty + " of " + total + " fields are NOT empty on load. Do not ride this sheet; report it.";
+      if(note){ note.style.borderColor = "var(--hot)"; note.style.color = "var(--hot)"; }
+    }
+  })();
+  // Defeat the browser's own form restore on back/forward navigation.
+  window.addEventListener("pageshow", function(e){ if(e.persisted){ fields().forEach(function(ta){ ta.value = ""; ta.classList.remove("has"); }); updateCount(); } });
+
+  window.addEventListener("scroll", tick, { passive:true });
+  window.addEventListener("resize", tick);
+  setInterval(tick, 1000);
+  tick();
+
+  function buildOutput(){
+    tick();
+    if(activeId && activeSince !== null){ var pa = timing[activeId]; if(pa){ var tn = Date.now(); pa.active += tn - activeSince; activeSince = tn; pa.lastOut = rel(); } }
+    var out = [];
+    out.push("=== COLD RIDE — Z-414 · six lessons on the office network ===");
+    out.push("Lessons: six, each with its closing question, and three shorter cards they lean on");
+    out.push("Source: COLD RIDE (a reader who did not write these lessons)");
+    out.push("Cards: 9; 6 lessons are each followed by their closing question");
+    out.push("TOTAL TIME ON PAGE: " + clk(Date.now() - T0) + "  (mm:ss from load)");
+    out.push("per card — first seen / last seen, from load");
+    out.push("");
+    var last = null;
+    fields().forEach(function(ta){
+      var node = ta.getAttribute("data-node"), name = NAMES[node] || node;
+      if(node !== last){
+        var e = timing[node];
+        out.push(e ? "=== " + name + " · first seen " + clk(e.firstIn) + " · last seen " + clk(e.lastOut) + " ===" : "=== " + name + " ===");
+        last = node;
+      }
+      out.push(name + " | " + ta.getAttribute("data-pos"));
+      var v = ta.value;
+      if(v.trim() === ""){ out.push("> (blank)"); }
+      else { v.split("\n").forEach(function(line){ out.push("> " + line); }); }
+      out.push("");
+    });
+    out.push("=== end ===");
+    return out.join("\n") + "\n";
+  }
+
+  var modal = document.getElementById("modal");
+  var outTa = document.getElementById("outTa");
+  var copyMsg = document.getElementById("copyMsg");
+  document.getElementById("collectBtn").addEventListener("click", function(){
+    outTa.value = buildOutput(); copyMsg.textContent = "";
+    modal.classList.add("open"); outTa.focus(); outTa.select();
+  });
+  document.getElementById("copyBtn").addEventListener("click", function(){
+    outTa.focus(); outTa.select();
+    var ok = false; try { ok = document.execCommand("copy"); } catch(e){}
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(outTa.value).then(
+        function(){ copyMsg.textContent = "Copied to clipboard."; },
+        function(){ copyMsg.textContent = ok ? "Copied." : "Press Ctrl/Cmd+C to copy."; }
+      );
+    } else { copyMsg.textContent = ok ? "Copied." : "Press Ctrl/Cmd+C to copy."; }
+  });
+  var WA_NUMBER = "13038888877";
+  document.getElementById("waBtn").addEventListener("click", function(){
+    var txt = buildOutput();
+    outTa.value = txt; copyMsg.textContent = "Opening WhatsApp — if it does not open, copy this text and send it to +1 303-888-8877.";
+    modal.classList.add("open");
+    window.open("https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(txt), "_blank");
+  });
+  document.getElementById("closeBtn").addEventListener("click", function(){ modal.classList.remove("open"); });
+  modal.addEventListener("click", function(e){ if(e.target === modal) modal.classList.remove("open"); });
+  document.addEventListener("keydown", function(e){ if(e.key === "Escape") modal.classList.remove("open"); });
+
+  updateCount();
+})();
+</script>
